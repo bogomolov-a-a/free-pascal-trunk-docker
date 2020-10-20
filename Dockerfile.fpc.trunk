@@ -1,0 +1,34 @@
+FROM ubuntu:latest as fpc_release
+WORKDIR /root/
+ARG FPC_VERSION="3.2.0"
+ARG	FPC_ARCH="x86_64-linux"
+RUN pwd
+RUN  apt-get update&&echo 'Y'| apt-get install wget gcc
+RUN wget "https://downloads.sourceforge.net/project/freepascal/Linux/${FPC_VERSION}/fpc-${FPC_VERSION}-${FPC_ARCH}.tar" -O fpc.tar
+RUN tar xf "fpc.tar" 
+RUN cd "fpc-${FPC_VERSION}-${FPC_ARCH}"&&rm demo* doc* 
+RUN rm -f "fpc.tar" 
+#install libgcc
+RUN cd "fpc-${FPC_VERSION}-${FPC_ARCH}"&&echo -e '/usr\nN\nN\nN\n' | su root ./install.sh
+#Remove directory and fpc check
+RUN rm -rf "fpc-${FPC_VERSION}-${FPC_ARCH}" 
+RUN fpc -h
+
+FROM fpc_release
+WORKDIR /root/
+ENV FPC_DIR /root/fpc/trunk/lib/fpc/trunk
+ENV FPC_INSTALL_PREFIX /root/fpc/trunk
+ENV COMPILER_NAME $FPC_DIR/ppcx64
+RUN pwd
+RUN ln -fs /usr/share/zoneinfo/Europe/Moscow /etc/localtime
+RUN apt-get update&&echo 'Y' |apt-get install git  make cmake
+RUN git clone --single-branch --branch master https://github.com/graemeg/freepascal.git
+# following tiers rebuild with CACHE_DATE<>""
+ARG CACHE_DATE=""
+RUN echo $CACHE_DATE
+RUN cd /root/freepascal&&git pull
+# build fpc for x86-64 linux
+RUN cd /root/freepascal&& make distclean $FPC_ARCH install OPT="-gw2 -godwarfsets -godwarfmethodclassprefix -gl -O- -Xs- -Si- -vbq -Sew-" INSTALL_PREFIX=$FPC_INSTALL_PREFIX
+#linux compiler check
+RUN $COMPILER_NAME -h
+
