@@ -2,7 +2,7 @@ FROM ubuntu:latest
 WORKDIR /root/
 ENV LAZ_DIR /root/lazarus
 ENV LAZ_INSTALL_PREFIX $LAZ_DIR/distr
-ENV SOURCE_FPC_DIR /root/fpc/trunk/lib/fpc/trunk
+ENV SOURCE_FPC_DIR /root/fpc/trunk/lib/fpc/3.3.1
 ENV FPC_DIR ./fpc
 ENV BASE_FPC_DIR /root/fpc
 ENV LAZBUILD_NAME $LAZ_INSTALL_PREFIX/share/lazarus/lazbuild

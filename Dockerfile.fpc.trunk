@@ -16,7 +16,7 @@ RUN fpc -h
 
 FROM fpc_release
 WORKDIR /root/
-ENV FPC_DIR /root/fpc/trunk/lib/fpc/trunk
+ENV FPC_DIR /root/fpc/trunk/lib/fpc/3.3.1
 ENV FPC_INSTALL_PREFIX /root/fpc/trunk
 ENV COMPILER_NAME $FPC_DIR/ppcx64
 RUN pwd

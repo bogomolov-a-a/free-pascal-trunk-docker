@@ -1,7 +1,7 @@
 #make simplify image for freepascal&lazarus build process 
 FROM ubuntu:latest
 WORKDIR /root/
-ENV SOURCE_FPC_DIR /root/fpc/trunk/lib/fpc/trunk
+ENV SOURCE_FPC_DIR /root/fpc/trunk/lib/fpc/3.3.1
 ENV FPC_DIR ./fpc
 ENV SOURCE_LAZ_DIR /root/lazarus/distr
 ENV LAZ_DIR ./lazarus
