@@ -18,8 +18,8 @@ ARG CACHE_DATE=""
 # following tiers rebuild with CACHE_DATE<>""
 RUN echo $CACHE_DATE
 RUN cd $LAZ_DIR&&git pull
-COPY --from=FREE_PASCAL_IMAGE_NAME:latest /root/freepascal/utils/fpcmkcfg/bin/x86_64-linux/fpcmkcfg $FPC_DIR
-COPY --from=FREE_PASCAL_IMAGE_NAME:latest /root/freepascal/utils/fpcres/bin/x86_64-linux/fpcres $FPC_DIR
+COPY --from=FREE_PASCAL_IMAGE_NAME /root/freepascal/utils/fpcmkcfg/bin/x86_64-linux/fpcmkcfg $FPC_DIR
+COPY --from=FREE_PASCAL_IMAGE_NAME /root/freepascal/utils/fpcres/bin/x86_64-linux/fpcres $FPC_DIR
 RUN $BASE_FPC_DIR/fpcmkcfg -d basepath=$BASE_FPC_DIR -o /etc/fpc.cfg&&cat /etc/fpc.cfg
 ENV COMPILER_NAME $BASE_FPC_DIR/ppcx64
 RUN cd $LAZ_DIR&&make distclean all install\
