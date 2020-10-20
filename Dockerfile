@@ -16,4 +16,5 @@ COPY --from=LAZARUS_IMAGE_NAME $SOURCE_LAZ_DIR/ $LAZ_DIR/
 RUN cd $FPC_DIR&&ls -a
 RUN cd $LAZ_DIR&&ls -a 
 VOLUME /root/app/
-VOLUME /root/target
+VOLUME /root/app/target/
+WORKDIR /root/app/
