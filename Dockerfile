@@ -1,6 +1,6 @@
 ARG FPC_IMAGE_NAME
-FROM ${FPC_IMAGE_NAME}:latest as FREE_PASCAL_IMAGE_NAME
 ARG LAZBUILD_IMAGE_NAME
+FROM ${FPC_IMAGE_NAME}:latest as FREE_PASCAL_IMAGE_NAME
 FROM ${LAZBUILD_IMAGE_NAME}:latest as LAZARUS_IMAGE_NAME
 #make simplify image for freepascal&lazarus build process 
 FROM ubuntu:latest
