@@ -53,8 +53,8 @@ jobs:
       - name: Build image
         run: |
           docker build . --file Dockerfile.fpc.trunk --tag $FREE_PASCAL_IMAGE_NAME
-          docker build . --file Dockerfile.lazarus.trunk --tag $FREE_PASCAL_LAZBUILD_IMAGE_NAME
-          docker build . --file Dockerfile --tag $IMAGE_NAME
+          docker build . --file Dockerfile.lazarus.trunk --tag $FREE_PASCAL_LAZBUILD_IMAGE_NAME --build-arg FPC_IMAGE_NAME=$FREE_PASCAL_IMAGE_NAME
+          docker build . --file Dockerfile --tag $IMAGE_NAME --build-arg FPC_IMAGE_NAME=$FREE_PASCAL_IMAGE_NAME --build-arg LAZBUILD_IMAGE_NAME=$FREE_PASCAL_LAZBUILD_IMAGE_NAME
 
       - name: Log into GitHub Container Registry
       # TODO: Create a PAT with `read:packages` and `write:packages` scopes and save it as an Actions secret `CR_PAT`
