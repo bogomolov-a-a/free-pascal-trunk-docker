@@ -12,6 +12,10 @@ ENV LAZ_DIR ./lazarus
 RUN mkdir -p $FPC_DIR
 RUN mkdir -p $LAZ_DIR
 COPY --from=FREE_PASCAL_IMAGE_NAME $SOURCE_FPC_DIR/ $FPC_DIR/
+COPY --from=FREE_PASCAL_IMAGE_NAME /root/freepascal/utils/fpcmkcfg/bin/x86_64-linux/fpcmkcfg $FPC_DIR
+COPY --from=FREE_PASCAL_IMAGE_NAME /root/freepascal/utils/fppkg/bin/x86_64-linux/fppkg $FPC_DIR
+COPY --from=FREE_PASCAL_IMAGE_NAME /root/freepascal/utils/fpcres/bin/x86_64-linux/fpcres $FPC_DIR
+RUN $FPC_DIR/fpcmkcfg -d basepath=$FPC_DIR -o /etc/fpc.cfg&&cat /etc/fpc.cfg
 COPY --from=LAZARUS_IMAGE_NAME $SOURCE_LAZ_DIR/ $LAZ_DIR/
 RUN cd $FPC_DIR&&ls -a
 RUN cd $LAZ_DIR&&ls -a 
