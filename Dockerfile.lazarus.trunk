@@ -1,10 +1,13 @@
 ARG FPC_IMAGE_NAME
+ARG COMPILER_ARCH="x86_64-linux"
+ARG CPU_TARGET=x86_64
+ARG OS_TARGET=linux
 FROM ${FPC_IMAGE_NAME}:latest as FREE_PASCAL_IMAGE_NAME
 FROM ubuntu:latest 
 WORKDIR /root/
 ENV LAZ_DIR /root/lazarus
 ENV LAZ_INSTALL_PREFIX $LAZ_DIR/distr
-ENV SOURCE_FPC_DIR /root/fpc/trunk/lib/fpc/3.3.1
+ENV SOURCE_FPC_DIR /root/fpc/trunk/lib/fpc/lastest
 ENV FPC_DIR ./fpc
 ENV BASE_FPC_DIR /root/fpc
 ENV LAZBUILD_NAME $LAZ_INSTALL_PREFIX/share/lazarus/lazbuild
@@ -13,15 +16,15 @@ RUN pwd
 RUN ln -fs /usr/share/zoneinfo/Europe/Moscow /etc/localtime
 RUN apt-get update&&echo 'Y' | apt-get install build-essential libgtk2.0-dev 
 RUN apt-get update&&echo 'Y' | apt-get install git
-RUN git clone https://github.com/graemeg/lazarus.git --single-branch --branch upstream
+RUN git clone --single-branch --branch $LAZARUS_BRANCH $LAZARUS_SOURCE
 ARG CACHE_DATE=""
 # following tiers rebuild with CACHE_DATE<>""
 RUN echo $CACHE_DATE
 RUN cd $LAZ_DIR&&git pull
-COPY --from=FREE_PASCAL_IMAGE_NAME /root/freepascal/utils/fpcmkcfg/bin/x86_64-linux/fpcmkcfg $FPC_DIR
-COPY --from=FREE_PASCAL_IMAGE_NAME /root/freepascal/utils/fpcres/bin/x86_64-linux/fpcres $FPC_DIR
+COPY --from=FREE_PASCAL_IMAGE_NAME /root/freepascal/utils/fpcmkcfg/bin/$COMPILER_ARCH/fpcmkcfg $FPC_DIR
+COPY --from=FREE_PASCAL_IMAGE_NAME /root/freepascal/utils/fpcres/bin/$COMPILER_ARCH/fpcres $FPC_DIR
 RUN $BASE_FPC_DIR/fpcmkcfg -d basepath=$BASE_FPC_DIR -o /etc/fpc.cfg&&cat /etc/fpc.cfg
-ENV COMPILER_NAME $BASE_FPC_DIR/ppcx64
+ENV COMPILER_NAME $BASE_FPC_DIR/fpc
 RUN cd $LAZ_DIR&&make distclean all install\
- PP=$COMPILER_NAME OPT="-gl -gh -O- -Si- -vb" CPU_TARGET=x86_64 FPC_VERSION=trunk OS_TARGET=linux INSTALL_PREFIX=$LAZ_INSTALL_PREFIX
+ PP=$COMPILER_NAME OPT="-gl -gh -O- -Si- -vb" CPU_TARGET=$CPU_TARGET FPC_VERSION=trunk OS_TARGET=$OS_TARGET INSTALL_PREFIX=$LAZ_INSTALL_PREFIX
 RUN $LAZBUILD_NAME

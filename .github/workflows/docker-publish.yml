@@ -13,6 +13,10 @@ env:
   IMAGE_NAME: free-pascal-with-lazbuild-trunk
   FREE_PASCAL_IMAGE_NAME: free-pascal-trunk
   FREE_PASCAL_LAZBUILD_IMAGE_NAME: lazbuild-trunk
+  FREE_PASCAL_COMPILER_SOURCE: https://gitlab.com/freepascal.org/fpc/source.git
+  FREE_PASCAL_COMPILER_BRANCH: main
+  LAZARUS_SOURCE: https://gitlab.com/freepascal.org/lazarus/lazarus.git
+  LAZARUS_BRANCH: main
 jobs:
 
   push:
