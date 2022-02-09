@@ -13,7 +13,7 @@ ENV SOURCE_FPC_DIR /root/fpc/trunk/lib/fpc/lastest
 ENV FPC_DIR ./fpc
 ENV BASE_FPC_DIR /root/fpc
 ENV LAZBUILD_NAME $LAZ_INSTALL_PREFIX/share/lazarus/lazbuild
-COPY --from=FREE_PASCAL_IMAGE_NAME  $SOURCE_FPC_DIR/ $FPC_DIR/
+COPY --from=FREE_PASCAL_IMAGE_NAME  $SOURCE_FPC_DIR $FPC_DIR
 RUN pwd
 RUN ln -fs /usr/share/zoneinfo/Europe/Moscow /etc/localtime
 RUN apt-get update&&echo 'Y' | apt-get install build-essential libgtk2.0-dev 
