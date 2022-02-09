@@ -1,11 +1,12 @@
 ARG FPC_IMAGE_NAME
 ARG LAZBUILD_IMAGE_NAME
-ARG COMPILER_ARCH="x86_64-linux"
+
 FROM ${FPC_IMAGE_NAME}:latest as FREE_PASCAL_IMAGE_NAME
 FROM ${LAZBUILD_IMAGE_NAME}:latest as LAZARUS_IMAGE_NAME
 #make simplify image for freepascal&lazarus build process 
 FROM ubuntu:latest
 WORKDIR /root/
+ARG COMPILER_ARCH="x86_64-linux"
 ENV SOURCE_FPC_DIR /root/fpc/trunk/lib/fpc/latest
 ENV FPC_DIR /root/fpc
 ENV SOURCE_LAZ_DIR /root/lazarus/distr
