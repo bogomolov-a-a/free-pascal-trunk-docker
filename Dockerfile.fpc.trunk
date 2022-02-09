@@ -23,7 +23,7 @@ ENV FREE_PASCAL_COMPILER_SOURCE_DIR freepascal
 ENV FPC_VERSION="latest"
 ENV FPC_INSTALL_PREFIX /root/fpc/trunk
 ENV FPC_DIR $FPC_INSTALL_PREFIX/lib/fpc/$FPC_VERSION
-ENV COMPILER_NAME $FPC_DIR/fpc
+ENV COMPILER_NAME $FPC_DIR/ppcx64
 RUN pwd
 RUN ln -fs /usr/share/zoneinfo/Europe/Moscow /etc/localtime
 RUN apt-get update&&echo 'Y' |apt-get install git  make cmake
@@ -35,7 +35,7 @@ RUN echo $CACHE_DATE
 RUN cd /root/$FREE_PASCAL_COMPILER_SOURCE_DIR&&git pull
 # build fpc for x86-64 linux
 RUN cd /root/$FREE_PASCAL_COMPILER_SOURCE_DIR&& make distclean $FPC_ARCH install OPT="-gw2 -godwarfsets -godwarfmethodclassprefix -gl -O- -Xs- -Si- -vbq -Sew- " INSTALL_PREFIX=$FPC_INSTALL_PREFIX FPC_VERSION=$FPC_VERSION
-RUN ls /root/fpc/trunk/lib/fpc/latest -a
+RUN ls FPC_DIR -a
 #linux compiler check
 RUN $COMPILER_NAME -h
 
