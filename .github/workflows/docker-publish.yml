@@ -30,8 +30,8 @@ jobs:
 
       - name: Build image
         run: |
-          docker build . --file Dockerfile.fpc.trunk --tag $FREE_PASCAL_IMAGE_NAME -e FREE_PASCAL_COMPILER_BRANCH = $FREE_PASCAL_COMPILER_BRANCH -e FREE_PASCAL_COMPILER_SOURCE=$FREE_PASCAL_COMPILER_SOURCE
-          docker build . --file Dockerfile.lazarus.trunk --tag $FREE_PASCAL_LAZBUILD_IMAGE_NAME --build-arg FPC_IMAGE_NAME=$FREE_PASCAL_IMAGE_NAME -e LAZARUS_BRANCH=$LAZARUS_BRANCH -e LAZARUS_SOURCE=$LAZARUS_SOURCE
+          docker build . --file Dockerfile.fpc.trunk --tag $FREE_PASCAL_IMAGE_NAME -build-arg FREE_PASCAL_COMPILER_BRANCH = $FREE_PASCAL_COMPILER_BRANCH --build-arg FREE_PASCAL_COMPILER_SOURCE=$FREE_PASCAL_COMPILER_SOURCE
+          docker build . --file Dockerfile.lazarus.trunk --tag $FREE_PASCAL_LAZBUILD_IMAGE_NAME --build-arg FPC_IMAGE_NAME=$FREE_PASCAL_IMAGE_NAME -build-arg LAZARUS_BRANCH=$LAZARUS_BRANCH -build-arg LAZARUS_SOURCE=$LAZARUS_SOURCE
           docker build . --file Dockerfile --tag $IMAGE_NAME --build-arg FPC_IMAGE_NAME=$FREE_PASCAL_IMAGE_NAME --build-arg LAZBUILD_IMAGE_NAME=$FREE_PASCAL_LAZBUILD_IMAGE_NAME
 
       - name: Log into GitHub Container Registry

@@ -3,6 +3,11 @@ WORKDIR /root/
 ARG FPC_VERSION="3.2.0"
 ARG	FPC_ARCH="x86_64-linux"
 ARG CROSS_COMPILE_ARCH="x86_x64-win64"
+ARG FREE_PASCAL_COMPILER_SOURCE
+ARG FREE_PASCAL_COMPILER_BRANCH
+ENV FPC_DIR /root/fpc/trunk/lib/fpc/lastest
+ENV FPC_INSTALL_PREFIX /root/fpc/trunk
+ENV COMPILER_NAME $FPC_DIR/fpc
 RUN pwd
 RUN  apt-get update&&echo 'Y'| apt-get install wget gcc
 RUN wget "https://downloads.sourceforge.net/project/freepascal/Linux/${FPC_VERSION}/fpc-${FPC_VERSION}-${FPC_ARCH}.tar" -O fpc.tar
@@ -17,9 +22,6 @@ RUN fpc -h
 
 FROM fpc_release
 WORKDIR /root/
-ENV FPC_DIR /root/fpc/trunk/lib/fpc/lastest
-ENV FPC_INSTALL_PREFIX /root/fpc/trunk
-ENV COMPILER_NAME $FPC_DIR/fpc
 RUN pwd
 RUN ln -fs /usr/share/zoneinfo/Europe/Moscow /etc/localtime
 RUN apt-get update&&echo 'Y' |apt-get install git  make cmake
