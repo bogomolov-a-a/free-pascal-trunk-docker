@@ -35,6 +35,7 @@ RUN echo $CACHE_DATE
 RUN cd /root/$FREE_PASCAL_COMPILER_SOURCE_DIR&&git pull
 # build fpc for x86-64 linux
 RUN cd /root/$FREE_PASCAL_COMPILER_SOURCE_DIR&& make distclean $FPC_ARCH install OPT="-gw2 -godwarfsets -godwarfmethodclassprefix -gl -O- -Xs- -Si- -vbq -Sew- " INSTALL_PREFIX=$FPC_INSTALL_PREFIX FPC_VERSION=$FPC_VERSION
+RUN ls /root/fpc/trunk/lib/fpc/latest -a
 #linux compiler check
 RUN $COMPILER_NAME -h
 
