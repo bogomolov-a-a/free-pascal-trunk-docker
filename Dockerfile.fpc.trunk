@@ -25,6 +25,7 @@ WORKDIR /root/
 RUN pwd
 RUN ln -fs /usr/share/zoneinfo/Europe/Moscow /etc/localtime
 RUN apt-get update&&echo 'Y' |apt-get install git  make cmake
+RUN echo $FREE_PASCAL_COMPILER_BRANCH $FREE_PASCAL_COMPILER_SOURCE
 RUN git clone --single-branch --branch $FREE_PASCAL_COMPILER_BRANCH $FREE_PASCAL_COMPILER_SOURCE
 # following tiers rebuild with CACHE_DATE<>""
 ARG CACHE_DATE=""
