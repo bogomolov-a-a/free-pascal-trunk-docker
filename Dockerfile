@@ -26,5 +26,4 @@ RUN $FPC_DIR/fpcmkcfg -d basepath=$FPC_DIR -o /etc/fpc.cfg
 RUN cd $FPC_DIR&&ls -a
 RUN cd $LAZ_DIR&&ls -a 
 VOLUME /root/app/
-VOLUME /root/app/target/
 WORKDIR /root/app/
