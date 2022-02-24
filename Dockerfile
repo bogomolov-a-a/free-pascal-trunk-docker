@@ -11,6 +11,14 @@ ENV SOURCE_FPC_DIR /root/fpc/trunk/lib/fpc/latest
 ENV FPC_DIR /root/fpc
 ENV SOURCE_LAZ_DIR /root/lazarus/distr
 ENV LAZ_DIR /root/lazarus
+ENV APP_BUILD_PATH /root/building
+ENV COMPILER_PATH=$FPC_DIR/ppcx64
+ENV LAZ_SHARE_DIR=$LAZ_DIR/share/lazarus
+ENV LAZ_BUILD_PATH=$LAZ_SHARE_DIR/lazbuild
+ENV LAZ_BUILD_DSL_APP_SOURCE_PATH=src
+ENV LAZ_BUILD_DSL_APP_PATH=./lazbuild-dsl-app
+ENV LAZ_BUILD_DSL_APP_NAME=lazBuildDslApp
+ENV LAZ_BUILD_DSL_APP_FULL_NAME=$APP_BUILD_PATH/$LAZ_BUILD_DSL_APP_NAME
 RUN mkdir -p $FPC_DIR
 RUN mkdir -p $LAZ_DIR
 COPY --from=FREE_PASCAL_IMAGE_NAME $SOURCE_FPC_DIR $FPC_DIR
@@ -25,5 +33,10 @@ RUN apt-get update&&echo 'Y' | apt-get install git make cmake
 RUN $FPC_DIR/fpcmkcfg -d basepath=$FPC_DIR -o /etc/fpc.cfg
 RUN cd $FPC_DIR&&ls -a
 RUN cd $LAZ_DIR&&ls -a 
-VOLUME /root/app/
+WORKDIR /root/building/
+COPY $LAZ_BUILD_DSL_APP_PATH .
+RUN ./app-build-script.sh&& rm ./app-build-script.sh
+RUN ls . -a
 WORKDIR /root/app/
+VOLUME /root/app
+ENTRYPOINT $LAZ_BUILD_DSL_APP_NAME
