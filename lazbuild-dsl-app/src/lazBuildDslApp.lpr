@@ -9,7 +9,7 @@ uses
 
 const
   APPLICATION_BUILD_INFO_FILE_NAME = 'app/app-build-info-descriptor';
-
+  DESCRIPTOR_FILE_NAME_OPTION = 'f';
 type
   { TLazBuildDSLApplication }
 
@@ -58,7 +58,7 @@ type
     var
       error: string;
     begin
-      error := CheckOptions('f', EmptyStr);
+      error := CheckOptions(DESCRIPTOR_FILE_NAME_OPTION, EmptyStr);
       if error <> EmptyStr then
       begin
         ShowException(Exception.Create(error));
@@ -66,8 +66,8 @@ type
         terminate;
         exit;
       end;
-      if HasOption('f') then
-        FFileName := GetOptionValue('f', EmptyStr);
+      if HasOption(DESCRIPTOR_FILE_NAME_OPTION) and (GetOptionValue(DESCRIPTOR_FILE_NAME_OPTION, EmptyStr).Trim() <> EmptyStr) then
+        FFileName := GetOptionValue(DESCRIPTOR_FILE_NAME_OPTION, EmptyStr);
       writeln(format('try to build application from building descriptor at ''%s''', [FFileName]));
       try
         FBuildFileStream.LoadFromFile(FFileName);
