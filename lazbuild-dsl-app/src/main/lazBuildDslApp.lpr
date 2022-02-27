@@ -1,12 +1,10 @@
 ﻿program lazBuildDslApp;
 
 uses
+  common.Data.Mapper,
   Classes,
   Sysutils,
-  CustApp,
-  XMLConf,
-  XMLRead,
-  lazBuildDslApp.Model in 'main/lazBuildDslApp.Model.pas';
+  CustApp;
 
 const
   APPLICATION_BUILD_INFO_FILE_NAME = 'app/app-build-info-descriptor';
@@ -18,6 +16,7 @@ type
   strict private
     FFileName: string;
     FBuildFileStream: TStringStream;
+    FDescriptorMapper: IDataMapper;
     procedure HandleBuildScript(Data: string);
   public
     constructor Create(AOwner: TComponent); override;
@@ -32,24 +31,26 @@ type
   constructor TLazBuildDSLApplication.Create(AOwner: TComponent);
     begin
       inherited Create(AOwner);
+      FDescriptorMapper := TDataMapperFactory.CreateDataMapper(mtJSON);
       FBuildFileStream := TStringStream.Create;
       FFileName := ExtractFilePath(ExcludeTrailingPathDelimiter(Location)) + APPLICATION_BUILD_INFO_FILE_NAME;
     end;
 
   destructor TLazBuildDSLApplication.Destroy;
     begin
+      FDescriptorMapper := nil;
       FreeAndNil(FBuildFileStream);
       FFileName := EmptyStr;
       inherited Destroy;
     end;
 
   procedure TLazBuildDSLApplication.HandleBuildScript(Data: string);
-   { var
-      TDOm}
-    //  ApplicationBuildInfo: TApplicationBuildInfoCollection;
+    var
+      ApplicationBuildInfo: TApplicationBuildInfoCollection;
     begin
-      {ApplicationBuildInfo.GenerateBuildScript();
-      FreeAndNil(ApplicationBuildInfo);}
+      ApplicationBuildInfo := FDescriptorMapper.DeSerializeFrom(Data, TApplicationBuildInfoCollection) as TApplicationBuildInfoCollection;
+      ApplicationBuildInfo.GenerateBuildScript();
+      FreeAndNil(ApplicationBuildInfo);
     end;
 
   procedure TLazBuildDSLApplication.DoRun;
@@ -67,7 +68,7 @@ type
       if HasOption(DESCRIPTOR_FILE_NAME_OPTION) and (GetOptionValue(DESCRIPTOR_FILE_NAME_OPTION, EmptyStr).Trim() <> EmptyStr) then
         FFileName := GetOptionValue(DESCRIPTOR_FILE_NAME_OPTION, EmptyStr);
       writeln(format('try to build application from building descriptor at ''%s''', [FFileName]));
-     { try
+      try
         FBuildFileStream.LoadFromFile(FFileName);
         HandleBuildScript(FBuildFileStream.DataString);
       except
@@ -78,7 +79,7 @@ type
           Terminate;
           exit;
         end;
-      end;}
+      end;
       writeln(format('application from building descriptor at ''%s'' built', [FFileName]));
       Terminate;
     end;

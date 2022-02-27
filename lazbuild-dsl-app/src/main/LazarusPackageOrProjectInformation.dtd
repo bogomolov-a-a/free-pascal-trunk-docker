@@ -1,0 +1,200 @@
+﻿<!-- Created with Liquid Studio 2021 (https://www.liquid-technologies.com) -->
+<!ELEMENT CONFIG ((ProjectOptions,CompilerOptions,Debugging)|(Package))>
+<!ELEMENT ProjectOptions (Version,PathDelim,General,LazDoc,i18n,VersionInfo,BuildModes,PublishOptions,RunParams,Units) >
+<!ELEMENT Version EMPTY>
+<!ATTLIST Version Value CDATA #REQUIRED>
+<!ELEMENT PathDelim EMPTY>
+<!ATTLIST PathDelim Value CDATA #REQUIRED>
+<!ELEMENT General (Flags,SessionStorage,MainUnit?,AutoCreateForms?,Title,Scaled?,UseAppBundle?,NSPrincipalClass?,ResourceType,UseXPManifest?,XPManifest?,Resources?) >
+<!ELEMENT Flags (SaveClosedFiles?,SaveOnlyProjectUnits?,MainUnitIsPascalSource?,MainUnitHasUsesSectionForAllUnits?,MainUnitHasCreateFormStatements?,
+    MainUnitHasTitleStatement?,MainUnitHasScaledStatement?,Runnable?,AlwaysBuild?,UseDesignTimePackages?,LRSInOutputDirectory?,UseDefaultCompilerOptions?,
+    SaveJumpHistory?,SaveFoldState?,CompatibilityMode?)>
+<!ELEMENT SaveClosedFiles EMPTY>
+<!ATTLIST SaveClosedFiles
+    Value (False|True)#REQUIRED>
+<!ELEMENT SaveOnlyProjectUnits EMPTY>
+<!ATTLIST SaveOnlyProjectUnits
+    Value (False|True)#REQUIRED>
+<!ELEMENT MainUnitIsPascalSource EMPTY>
+<!ATTLIST MainUnitIsPascalSource
+    Value (False|True)#REQUIRED>
+<!ELEMENT MainUnitHasUsesSectionForAllUnits EMPTY>
+<!ATTLIST MainUnitHasUsesSectionForAllUnits
+    Value (False|True)#REQUIRED>
+<!ELEMENT MainUnitHasCreateFormStatements EMPTY>
+<!ATTLIST MainUnitHasCreateFormStatements
+    Value (False|True)#REQUIRED> 
+<!ELEMENT MainUnitHasTitleStatement EMPTY>
+<!ATTLIST MainUnitHasTitleStatement
+    Value (False|True)#REQUIRED>
+<!ELEMENT MainUnitHasScaledStatement EMPTY>
+<!ATTLIST MainUnitHasScaledStatement
+    Value (False|True)#REQUIRED>
+<!ELEMENT Runnable EMPTY>
+<!ATTLIST Runnable
+    Value (False|True)#REQUIRED>
+<!ELEMENT AlwaysBuild EMPTY>
+<!ATTLIST AlwaysBuild
+    Value (False|True)#REQUIRED>
+<!ELEMENT UseDesignTimePackages EMPTY>
+<!ATTLIST UseDesignTimePackages
+    Value (False|True)#REQUIRED>
+<!ELEMENT LRSInOutputDirectory EMPTY>
+<!ATTLIST LRSInOutputDirectory
+    Value (False|True)#REQUIRED>
+<!ELEMENT UseDefaultCompilerOptions EMPTY>
+<!ATTLIST UseDefaultCompilerOptions
+    Value (False|True)#REQUIRED>
+<!ELEMENT SaveJumpHistory EMPTY>    
+<!ATTLIST SaveJumpHistory
+    Value (False|True)#REQUIRED>
+<!ELEMENT SaveFoldState EMPTY>  
+<!ATTLIST SaveFoldState
+    Value (False|True)#REQUIRED>
+<!ELEMENT CompatibilityMode EMPTY>  
+<!ATTLIST CompatibilityMode
+    Value (False|True)#REQUIRED> 
+<!-- END FLAGS -->
+<!ELEMENT SessionStorage EMPTY>    
+<!ATTLIST SessionStorage 
+    Value (None|InIDEConfig|InProjectDir|InProjectInfo) #REQUIRED >
+<!ELEMENT MainUnit EMPTY>     
+<!ATTLIST MainUnit 
+    Value CDATA #REQUIRED >
+<!ELEMENT AutoCreateForms EMPTY>   
+<!ATTLIST AutoCreateForms
+    Value (False|True) #REQUIRED>  
+<!ELEMENT Title EMPTY>        
+<!ATTLIST Title
+    Value NMTOKEN #REQUIRED>
+<!ELEMENT Scaled EMPTY>  
+<!ATTLIST Scaled
+    Value (False|True) #REQUIRED> 
+<!ELEMENT UseAppBundle EMPTY>   
+<!ATTLIST UseAppBundle 
+    Value (False|True) #REQUIRED> 
+<!ELEMENT NSPrincipalClass EMPTY>   
+<!ATTLIST NSPrincipalClass
+     Value CDATA #REQUIRED>
+ <!ELEMENT ResourceType EMPTY> 
+<!ATTLIST ResourceType
+    Value (LRS|res) #REQUIRED> 
+<!ELEMENT UseXPManifest EMPTY >
+<!ATTLIST UseXPManifest
+     Value (False|True) #REQUIRED>   
+<!ELEMENT XPManifest(DpiAware?, ExecutionLevel?,UIAccess?,LongPathAware?,AnsiUTF8?,TextName?,TextDesc?) >
+<!ELEMENT DpiAware EMPTY >
+<!ATTLIST DpiAware
+     Value (False|True|Per-monitor) #REQUIRED>   
+<!ELEMENT UIAccess EMPTY >
+<!ATTLIST UIAccess
+     Value (False|True) #REQUIRED>   
+<!ELEMENT ExecutionLevel EMPTY >
+<!ATTLIST ExecutionLevel
+     Value (requireAdministrator|highestAvailable) #REQUIRED>   
+<!ELEMENT LongPathAware EMPTY >
+<!ATTLIST LongPathAware
+     Value (False|True) #REQUIRED>
+<!ELEMENT AnsiUTF8 EMPTY >
+<!ATTLIST AnsiUTF8
+     Value (False|True) #REQUIRED>
+<!ELEMENT TextName EMPTY >
+<!ATTLIST TextName
+     Value CDATA #REQUIRED>  
+<!ELEMENT TextDesc EMPTY >
+<!ATTLIST TextDesc
+     Value CDATA #REQUIRED> 
+<!-- END XPManifest -->
+<!ELEMENT Resources ANY>
+<!ATTLIST Resources 
+    Count CDATA #REQUIRED>
+<!--  END GENERAL --> 
+<!ELEMENT LazDoc EMPTY >
+<!ATTLIST LazDoc
+    Paths CDATA #IMPLIED 
+    PackageName CDATA #IMPLIED>  
+<!--  END LAZ DOC -->
+<!ELEMENT i18n (EnableI18N,OutDir?,ExcludedIdentifiers?,ExcludedOriginals?) >   
+<!ELEMENT EnableI18N EMPTY >
+<!ATTLIST EnableI18N
+     Value (False|True) #REQUIRED>
+<!ELEMENT OutDir EMPTY >
+<!ATTLIST OutDir
+     Value CDATA #REQUIRED>
+<!ELEMENT ExcludedIdentifiers ANY>
+<!ATTLIST ExcludedIdentifiers 
+    Count CDATA #REQUIRED>
+<!ELEMENT ExcludedOriginals ANY>
+<!ATTLIST ExcludedOriginals 
+    Count CDATA #REQUIRED>
+<!-- END i18n -->
+<!ELEMENT VersionInfo (UseVersionInfo,AutoIncrementBuild?,MajorVersionNr?,MinorVersionNr?,RevisionNr?,BuildNr?,Attributes?,StringTable?) >
+<!ELEMENT UseVersionInfo EMPTY >
+<!ATTLIST UseVersionInfo
+     Value (False|True) #REQUIRED>
+<!ELEMENT AutoIncrementBuild EMPTY >
+<!ATTLIST AutoIncrementBuild
+     Value (False|True) #REQUIRED>
+<!ELEMENT MajorVersionNr EMPTY >
+<!ATTLIST MajorVersionNr
+     Value CDATA #REQUIRED>  
+<!ELEMENT MinorVersionNr EMPTY >
+<!ATTLIST MinorVersionNr
+     Value CDATA #REQUIRED>  
+<!ELEMENT RevisionNr EMPTY >
+<!ATTLIST RevisionNr
+     Value CDATA #REQUIRED>  
+<!ELEMENT BuildNr EMPTY >
+<!ATTLIST BuildNr
+     Value CDATA #REQUIRED>  
+ <!ELEMENT Attributes EMPTY >   
+ <!ATTLIST Attributes
+     pvaDebug (False|True) #IMPLIED
+     pvaPreRelease (False|True) #IMPLIED
+     pvaPatched (False|True) #IMPLIED
+     pvaPrivateBuild (False|True) #IMPLIED
+     pvaSpecialBuild (False|True) #IMPLIED>
+ <!ELEMENT StringTable EMPTY >         
+ <!ATTLIST Attributes
+     Comments CDATA #IMPLIED
+     CompanyName CDATA #IMPLIED
+     FileDescription CDATA #IMPLIED
+     InternalName CDATA #IMPLIED
+     LegalCopyright CDATA #IMPLIED
+     LegalTrademarks CDATA #IMPLIED
+     OriginalFilename CDATA #IMPLIED
+     ProductName CDATA #IMPLIED
+     ProductVersion CDATA #IMPLIED
+     PrivateBuild CDATA #IMPLIED
+     SpecialBuild CDATA #IMPLIED>
+<!-- END VERSION_INFO -->
+<!ELEMENT BuildModes ANY>
+<!ATTLIST BuildModes 
+    Count CDATA #REQUIRED>    
+<!ELEMENT CompilerOptions (Version,PathDelim,Target,SearchPaths,Parsing,CodeGeneration)>
+<!ELEMENT Target (Filename) >
+<!ELEMENT Filename EMPTY >
+<!ATTLIST Filename 
+    Value CDATA #REQUIRED> 
+<!ELEMENT SearchPaths (IncludeFiles,Libraries?,OtherUnitFiles?,UnitOutputDirectory) >
+<!ELEMENT IncludeFiles EMPTY>
+<!ATTLIST IncludeFiles 
+    Value CDATA #REQUIRED> 
+<!ELEMENT Libraries EMPTY>
+<!ATTLIST Libraries 
+    Value CDATA #REQUIRED> 
+<!ELEMENT OtherUnitFiles EMPTY>
+<!ATTLIST OtherUnitFiles 
+    Value CDATA #REQUIRED> 
+<!ELEMENT UnitOutputDirectory EMPTY>
+<!ATTLIST UnitOutputDirectory 
+    Value CDATA #REQUIRED> 
+<!--  END SEARCH PATHS -->
+<!ELEMENT Parsing (Style,SyntaxOptions)>
+<!ELEMENT Style EMPTY >
+<!ATTLIST Style
+    Value (1|2) #REQUIRED >
+<!ELEMENT SyntaxOptions (SyntaxMode,CStyleOperator,IncludeAssertionCode,AllowLabel,CStyleMacros,InitConstructor,UseAnsiStrings)>
+<!ELEMENT CodeGeneration EMPTY>
+<!ELEMENT Debugging EMPTY>
+<!ELEMENT Package (Version,PathDelim) >

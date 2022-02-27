@@ -71,12 +71,6 @@ type
   end;
 
   TAbstractApplicationBuildInfo = class(TCollectionItem)
-
-  end;
-
-  { TTestSuiteInfo }
-
-  TTestSuiteInfo = class(TAbstractApplicationBuildInfo)
   strict private
     FProjectFileName: string;
     FBuildSystemInfo: TBuildSystemInfo;
@@ -89,6 +83,12 @@ type
     property ProjectFileName: string read FProjectFileName write FProjectFileName;
     property BuildSystemInfo: TBuildSystemInfo read FBuildSystemInfo;
     property Dependenies: TDependencyCollection read FDependenies;
+  end;
+
+  { TTestSuiteInfo }
+
+  TTestSuiteInfo = class(TAbstractApplicationBuildInfo)
+
   end;
 
   { TTestSuiteInfoCollection }
@@ -123,19 +123,20 @@ type
 
 implementation
 
-{ TTestSuiteInfo }
+{ TAbstractApplicationBuildInfo }
 
-constructor TTestSuiteInfo.Create(ACollection: TCollection);
+constructor TAbstractApplicationBuildInfo.Create(ACollection: TCollection);
+  begin
+    inherited Create(ACollection);
+    Create;
+  end;
+
+constructor TAbstractApplicationBuildInfo.Create;
   begin
 
   end;
 
-constructor TTestSuiteInfo.Create;
-  begin
-
-  end;
-
-destructor TTestSuiteInfo.Destroy;
+destructor TAbstractApplicationBuildInfo.Destroy;
   begin
     inherited Destroy;
   end;
