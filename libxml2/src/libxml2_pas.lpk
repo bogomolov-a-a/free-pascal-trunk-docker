@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <Package Version="5">
+    <PathDelim Value="\"/>
+    <Name Value="libxml2_pas"/>
+    <Type Value="RunAndDesignTime"/>
+    <CompilerOptions>
+      <Version Value="11"/>
+      <PathDelim Value="\"/>
+      <SearchPaths>
+        <UnitOutputDirectory Value="lib\$(TargetCPU)-$(TargetOS)"/>
+      </SearchPaths>
+      <Linking>
+        <Debugging>
+          <UseHeaptrc Value="True"/>
+          <TrashVariables Value="True"/>
+        </Debugging>
+      </Linking>
+    </CompilerOptions>
+    <Files>
+      <Item>
+        <Filename Value="iconv.pas"/>
+        <UnitName Value="iconv"/>
+      </Item>
+      <Item>
+        <Filename Value="libexslt.pas"/>
+        <UnitName Value="libexslt"/>
+      </Item>
+      <Item>
+        <Filename Value="libxml2.pas"/>
+        <UnitName Value="libxml2"/>
+      </Item>
+      <Item>
+        <Filename Value="libxmlsec.pas"/>
+        <UnitName Value="libxmlsec"/>
+      </Item>
+      <Item>
+        <Filename Value="libxslt.pas"/>
+        <UnitName Value="libxslt"/>
+      </Item>
+    </Files>
+    <RequiredPkgs>
+      <Item>
+        <PackageName Value="FCL"/>
+      </Item>
+    </RequiredPkgs>
+    <UsageOptions>
+      <UnitPath Value="$(PkgOutDir)"/>
+    </UsageOptions>
+    <PublishOptions>
+      <Version Value="2"/>
+      <UseFileFilters Value="True"/>
+    </PublishOptions>
+  </Package>
+</CONFIG>
