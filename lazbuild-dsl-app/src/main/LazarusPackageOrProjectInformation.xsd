@@ -1,0 +1,1169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Liquid Studio 2021 (https://www.liquid-technologies.com) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+					 elementFormDefault="qualified"
+					 targetNamespace="urn://org/freepascal/lazarus/LPI_LPK_CONFIG/2.3.0"
+					 xmlns="urn://org/freepascal/lazarus/LPI_LPK_CONFIG/2.3.0">
+	<xs:element name="CONFIG">
+		<xs:complexType>
+			<xs:choice>
+				<xs:sequence>
+					<xs:element ref="ProjectOptions"/>
+					<xs:element ref="CompilerOptions"/>
+					<xs:element ref="Debugging"/>
+				</xs:sequence>
+				<xs:element ref="Package"/>
+			</xs:choice>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="ProjectOptions">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Version"/>
+				<xs:element minOccurs="0"
+										ref="PathDelim"/>
+				<xs:element ref="General"/>
+				<xs:element ref="LazDoc"/>
+				<xs:element ref="i18n"/>
+				<xs:element ref="VersionInfo"/>
+				<xs:element ref="BuildModes"/>
+				<xs:element ref="PublishOptions"/>
+				<xs:element ref="RunParams"/>
+				<xs:element ref="RequiredPackages"/>
+				<xs:element ref="Units"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Version">
+		<xs:complexType>
+			<xs:attribute name="Value"
+										use="required"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="PathDelim">
+		<xs:complexType>
+			<xs:attribute name="Value"
+										use="required"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="General">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Flags"/>
+				<xs:element ref="SessionStorage"/>
+				<xs:element minOccurs="0"
+										ref="MainUnit"/>
+				<xs:element minOccurs="0"
+										ref="AutoCreateForms"/>
+				<xs:element ref="Title"/>
+				<xs:element minOccurs="0"
+										ref="Scaled"/>
+				<xs:element minOccurs="0"
+										ref="UseAppBundle"/>
+				<xs:element minOccurs="0"
+										ref="NSPrincipalClass"/>
+				<xs:element ref="ResourceType"/>
+				<xs:element minOccurs="0"
+										ref="UseXPManifest"/>
+				<xs:element minOccurs="0"
+										ref="XPManifest"/>
+				<xs:element minOccurs="0"
+										ref="Resources"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Flags">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element minOccurs="0"
+										ref="SaveClosedFiles"/>
+				<xs:element minOccurs="0"
+										ref="SaveOnlyProjectUnits"/>
+				<xs:element minOccurs="0"
+										ref="MainUnitIsPascalSource"/>
+				<xs:element minOccurs="0"
+										ref="MainUnitHasUsesSectionForAllUnits"/>
+				<xs:element minOccurs="0"
+										ref="MainUnitHasCreateFormStatements"/>
+				<xs:element minOccurs="0"
+										ref="MainUnitHasTitleStatement"/>
+				<xs:element minOccurs="0"
+										ref="MainUnitHasScaledStatement"/>
+				<xs:element minOccurs="0"
+										ref="Runnable"/>
+				<xs:element minOccurs="0"
+										ref="AlwaysBuild"/>
+				<xs:element minOccurs="0"
+										ref="UseDesignTimePackages"/>
+				<xs:element minOccurs="0"
+										ref="LRSInOutputDirectory"/>
+				<xs:element minOccurs="0"
+										ref="UseDefaultCompilerOptions"/>
+				<xs:element minOccurs="0"
+										ref="SaveJumpHistory"/>
+				<xs:element minOccurs="0"
+										ref="SaveFoldState"/>
+				<xs:element minOccurs="0"
+										ref="CompatibilityMode"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="SaveClosedFiles">
+		<xs:complexType>
+			<xs:attribute name="Value"
+										use="required"
+										type="PascalBoolean"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="SaveOnlyProjectUnits">
+		<xs:complexType>
+			<xs:attribute name="Value"
+										use="required"
+										type="PascalBoolean"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="MainUnitIsPascalSource">
+		<xs:complexType>
+			<xs:attribute name="Value"
+										use="required"
+										type="PascalBoolean"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="MainUnitHasUsesSectionForAllUnits">
+		<xs:complexType>
+			<xs:attribute name="Value"
+										use="required"
+										type="PascalBoolean"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="MainUnitHasCreateFormStatements">
+		<xs:complexType>
+			<xs:attribute name="Value"
+										use="required"
+										type="PascalBoolean"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="MainUnitHasTitleStatement">
+		<xs:complexType>
+			<xs:attribute name="Value"
+										use="required"
+										type="PascalBoolean"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="MainUnitHasScaledStatement">
+		<xs:complexType>
+			<xs:attribute name="Value"
+										use="required"
+										type="PascalBoolean"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Runnable">
+		<xs:complexType>
+			<xs:attribute name="Value"
+										use="required"
+										type="PascalBoolean"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="AlwaysBuild">
+		<xs:complexType>
+			<xs:attribute name="Value"
+										use="required"
+										type="PascalBoolean"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="UseDesignTimePackages">
+		<xs:complexType>
+			<xs:attribute name="Value"
+										use="required"
+										type="PascalBoolean"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="LRSInOutputDirectory">
+		<xs:complexType>
+			<xs:attribute name="Value"
+										use="required"
+										type="PascalBoolean"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="UseDefaultCompilerOptions">
+		<xs:complexType>
+			<xs:attribute name="Value"
+										use="required"
+										type="PascalBoolean"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="SaveJumpHistory">
+		<xs:complexType>
+			<xs:attribute name="Value"
+										use="required"
+										type="PascalBoolean"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="SaveFoldState">
+		<xs:complexType>
+			<xs:attribute name="Value"
+										use="required"
+										type="PascalBoolean"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CompatibilityMode">
+		<xs:complexType>
+			<xs:attribute name="Value"
+										use="required"
+										type="PascalBoolean"/>
+		</xs:complexType>
+	</xs:element>
+	<!-- END FLAGS -->
+	<xs:element name="SessionStorage">
+		<xs:complexType>
+			<xs:attribute name="Value"
+										default="None"
+										type="SessionStorageType"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="MainUnit">
+		<xs:complexType>
+			<xs:attribute name="Value"
+										use="required"
+										type="xs:token"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="AutoCreateForms">
+		<xs:complexType>
+			<xs:attribute name="Value"
+										use="required"
+										type="PascalBoolean"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Title">
+		<xs:complexType>
+			<xs:attribute name="Value"
+										use="required"
+										type="xs:NMTOKEN"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Scaled">
+		<xs:complexType>
+			<xs:attribute name="Value"
+										use="required"
+										type="PascalBoolean"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="UseAppBundle">
+		<xs:complexType>
+			<xs:attribute name="Value"
+										use="required"
+										type="PascalBoolean"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="NSPrincipalClass">
+		<xs:complexType>
+			<xs:attribute name="Value"
+										use="required"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="ResourceType">
+		<xs:complexType>
+			<xs:attribute name="Value"
+										default="res"
+										type="ResourceTypeType"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="UseXPManifest">
+		<xs:complexType>
+			<xs:attribute name="Value"
+										type="PascalBoolean"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="XPManifest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element minOccurs="0"
+										ref="DpiAware"/>
+				<xs:element minOccurs="0"
+										ref="ExecutionLevel"/>
+				<xs:element minOccurs="0"
+										ref="UIAccess"/>
+				<xs:element minOccurs="0"
+										ref="LongPathAware"/>
+				<xs:element minOccurs="0"
+										ref="AnsiUTF8"/>
+				<xs:element minOccurs="0"
+										ref="TextName"/>
+				<xs:element minOccurs="0"
+										ref="TextDesc"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="DpiAware">
+		<xs:complexType>
+			<xs:attribute name="Value"
+										use="required"
+										type="PascalBoolean"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="UIAccess">
+		<xs:complexType>
+			<xs:attribute name="Value"
+										use="required"
+										type="PascalBoolean"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="ExecutionLevel">
+		<xs:complexType>
+			<xs:attribute name="Value"
+										default="requireAdministrator"
+										type="ExecutionLevelType"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="LongPathAware">
+		<xs:complexType>
+			<xs:attribute name="Value"
+										use="required"
+										type="PascalBoolean"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="AnsiUTF8">
+		<xs:complexType>
+			<xs:attribute name="Value"
+										use="required"
+										type="PascalBoolean"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="TextName">
+		<xs:complexType>
+			<xs:attribute name="Value"
+										use="required"
+										type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="TextDesc">
+		<xs:complexType>
+			<xs:attribute name="Value"
+										use="required"
+										type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<!-- END XPManifest -->
+	<xs:element name="Resources"
+							type="IgnorableUnbounded_X_type"/>
+	<!-- END GENERAL -->
+	<xs:element name="LazDoc">
+		<xs:complexType>
+			<xs:attribute name="Paths"/>
+			<xs:attribute name="PackageName"/>
+		</xs:complexType>
+	</xs:element>
+	<!-- END LAZ DOC -->
+	<xs:element name="i18n">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element minOccurs="0"
+										ref="EnableI18N"/>
+				<xs:element minOccurs="0"
+										ref="OutDir"/>
+				<xs:element minOccurs="0"
+										ref="ExcludedIdentifiers"/>
+				<xs:element minOccurs="0"
+										ref="ExcludedOriginals"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="EnableI18N">
+		<xs:complexType>
+			<xs:attribute name="Value"
+										use="required"
+										type="PascalBoolean"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="OutDir">
+		<xs:complexType>
+			<xs:attribute name="Value"
+										use="required"
+										type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="ExcludedIdentifiers"
+							type="IgnorableUnbounded_X_type"/>
+	<xs:element name="ExcludedOriginals" type="IgnorableUnbounded_X_type"/>
+	<!-- END i18n -->
+	<xs:element name="VersionInfo">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element minOccurs="0"
+										ref="UseVersionInfo"/>
+				<xs:element minOccurs="0"
+										ref="AutoIncrementBuild"/>
+				<xs:element minOccurs="0"
+										ref="MajorVersionNr"/>
+				<xs:element minOccurs="0"
+										ref="MinorVersionNr"/>
+				<xs:element minOccurs="0"
+										ref="RevisionNr"/>
+				<xs:element minOccurs="0"
+										ref="BuildNr"/>
+				<xs:element minOccurs="0"
+										ref="Attributes"/>
+				<xs:element minOccurs="0"
+										ref="StringTable"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="UseVersionInfo">
+		<xs:complexType>
+			<xs:attribute name="Value"
+										use="required"
+										type="PascalBoolean"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="AutoIncrementBuild">
+		<xs:complexType>
+			<xs:attribute name="Value"
+										use="required"
+										type="PascalBoolean"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="MajorVersionNr">
+		<xs:complexType>
+			<xs:attribute name="Value"
+										use="required"
+										type="xs:int"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="MinorVersionNr">
+		<xs:complexType>
+			<xs:attribute name="Value"
+										use="required"
+										type="xs:int"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="RevisionNr">
+		<xs:complexType>
+			<xs:attribute name="Value"
+										use="required"
+										type="xs:int"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="BuildNr">
+		<xs:complexType>
+			<xs:attribute name="Value"
+										use="required"
+										type="xs:int"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Attributes">
+		<xs:complexType>
+			<xs:attribute name="pvaDebug"
+										type="PascalBoolean"/>
+			<xs:attribute name="pvaPreRelease"
+										type="PascalBoolean"/>
+			<xs:attribute name="pvaPatched"
+										type="PascalBoolean"/>
+			<xs:attribute name="pvaPrivateBuild"
+										type="PascalBoolean"/>
+			<xs:attribute name="pvaSpecialBuild"
+										type="PascalBoolean"/>
+			<xs:attribute name="Comments"/>
+			<xs:attribute name="CompanyName"/>
+			<xs:attribute name="FileDescription"/>
+			<xs:attribute name="InternalName"/>
+			<xs:attribute name="LegalCopyright"/>
+			<xs:attribute name="LegalTrademarks"/>
+			<xs:attribute name="OriginalFilename"/>
+			<xs:attribute name="ProductName"/>
+			<xs:attribute name="ProductVersion"/>
+			<xs:attribute name="PrivateBuild"/>
+			<xs:attribute name="SpecialBuild"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="StringTable">
+		<xs:complexType>
+			<xs:attribute name="Comments"
+										type="xs:string"/>
+			<xs:attribute name="CompanyName"
+										type="xs:string"/>
+			<xs:attribute name="FileDescription"
+										type="xs:string"/>
+			<xs:attribute name="InternalName"
+										type="xs:string"/>
+			<xs:attribute name="LegalCopyright"
+										type="xs:string"/>
+			<xs:attribute name="LegalTrademarks"
+										type="xs:string"/>
+			<xs:attribute name="OriginalFilename"
+										type="xs:string"/>
+			<xs:attribute name="ProductName"
+										type="xs:string"/>
+			<xs:attribute name="ProductVersion"
+										type="xs:string"/>
+			<xs:attribute name="PrivateBuild"
+										type="xs:string"/>
+			<xs:attribute name="SpecialBuild"
+										type="xs:string"/>
+			</xs:complexType>
+	</xs:element>
+	<!-- END VERSION_INFO -->
+	<xs:element name="BuildModes">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Item"
+										type="BuildModeType"
+										minOccurs="1"
+										maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="BuildModeType">
+		<xs:sequence>
+			<xs:element ref="CompilerOptions" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="Name"
+									type="xs:token"/>
+		<xs:attribute name="Default"
+									type="PascalBoolean"/>
+	</xs:complexType>
+	<!-- !!START COMPILER_OPTIONS AS PART BUILD_MODE ITEM!! -->
+	<xs:element name="CompilerOptions"
+							>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Version"/>
+				<xs:element ref="PathDelim"/>
+				<xs:element ref="Target"/>
+				<xs:element ref="SearchPaths"/>
+				<xs:element ref="Parsing" minOccurs="0"/>
+				<xs:element ref="CodeGeneration"/>
+				<xs:element ref="Linking"/>
+				<xs:element name="Other" type="IgnorableUnboundedType" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Target"
+										type="Filename"/>
+	<xs:complexType name="Filename">
+		<xs:sequence>
+			<xs:element ref="Filename"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="Filename">
+		<xs:complexType>
+			<xs:attribute name="Value"
+										use="required"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="SearchPaths">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="IncludeFiles"/>
+				<xs:element minOccurs="0"
+										ref="Libraries"/>
+				<xs:element minOccurs="0"
+										ref="OtherUnitFiles"/>
+				<xs:element ref="UnitOutputDirectory"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="IncludeFiles">
+		<xs:complexType>
+			<xs:attribute name="Value"
+										use="required"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Libraries">
+		<xs:complexType>
+			<xs:attribute name="Value"
+										use="required"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="OtherUnitFiles">
+		<xs:complexType>
+			<xs:attribute name="Value"
+										use="required"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="UnitOutputDirectory">
+		<xs:complexType>
+			<xs:attribute name="Value"
+										use="required"/>
+		</xs:complexType>
+	</xs:element>
+	<!-- END SEARCH PATHS -->
+	<xs:element name="Parsing">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element minOccurs="0"
+										ref="Style"/>
+				<xs:element ref="SyntaxOptions"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Style">
+		<xs:complexType>
+			<xs:attribute name="Value"
+										default="1"
+										type="AssemblerStyleType"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="SyntaxOptions">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element minOccurs="0"
+										ref="SyntaxMode"/>
+				<xs:element minOccurs="0"
+										ref="CStyleOperator"/>
+				<xs:element minOccurs="0"
+										ref="IncludeAssertionCode"/>
+				<xs:element minOccurs="0"
+										ref="AllowLabel"/>
+				<xs:element minOccurs="0"
+										ref="CStyleMacros"/>
+				<xs:element minOccurs="0"
+										ref="InitConstructor"/>
+				<xs:element minOccurs="0"
+										ref="UseAnsiStrings"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="SyntaxMode">
+		<xs:complexType>
+			<xs:attribute name="Value"
+										default="ObjFPC"
+										type="SyntaxModeType"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CStyleOperator">
+		<xs:complexType>
+			<xs:attribute name="Value"
+										use="required"
+										type="PascalBoolean"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="IncludeAssertionCode">
+		<xs:complexType>
+			<xs:attribute name="Value"
+										use="required"
+										type="PascalBoolean"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="AllowLabel">
+		<xs:complexType>
+			<xs:attribute name="Value"
+										use="required"
+										type="PascalBoolean"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CStyleMacros">
+		<xs:complexType>
+			<xs:attribute name="Value"
+										use="required"
+										type="PascalBoolean"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="InitConstructor">
+		<xs:complexType>
+			<xs:attribute name="Value"
+										use="required"
+										type="PascalBoolean"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="UseAnsiStrings">
+		<xs:complexType>
+			<xs:attribute name="Value"
+										use="required"
+										type="PascalBoolean"/>
+		</xs:complexType>
+	</xs:element>
+	<!-- END PARSING -->
+	<xs:element name="CodeGeneration">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element minOccurs="0"
+										ref="SmartLinkUnit"/>
+				<xs:element minOccurs="0"
+										ref="RelocatableUnit"/>
+				<xs:element minOccurs="0"
+										ref="Checks"/>
+				<xs:element minOccurs="0"
+										ref="HeapSize"/>
+				<xs:element minOccurs="0"
+										ref="StackSize"/>
+				<xs:element minOccurs="0"
+										ref="VerifyObjMethodCallValidity"/>
+				<xs:element ref="Optimizations" minOccurs="0"/>
+				<xs:element minOccurs="0"
+										ref="SmallerCode"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="SmartLinkUnit">
+		<xs:complexType>
+			<xs:attribute name="Value"
+										use="required"
+										type="PascalBoolean"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="RelocatableUnit">
+		<xs:complexType>
+			<xs:attribute name="Value"
+										use="required"
+										type="PascalBoolean"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Checks">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element minOccurs="0"
+										ref="IOChecks"/>
+				<xs:element minOccurs="0"
+										ref="RangeChecks"/>
+				<xs:element minOccurs="0"
+										ref="OverflowChecks"/>
+				<xs:element minOccurs="0"
+										ref="StackChecks"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="IOChecks">
+		<xs:complexType>
+			<xs:attribute name="Value"
+										use="required"
+										type="PascalBoolean"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="RangeChecks">
+		<xs:complexType>
+			<xs:attribute name="Value"
+										use="required"
+										type="PascalBoolean"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="OverflowChecks">
+		<xs:complexType>
+			<xs:attribute name="Value"
+										use="required"
+										type="PascalBoolean"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="StackChecks">
+		<xs:complexType>
+			<xs:attribute name="Value"
+										use="required"
+										type="PascalBoolean"/>
+		</xs:complexType>
+	</xs:element>
+	<!-- END CHECKS -->
+	<xs:element name="HeapSize">
+		<xs:complexType>
+			<xs:attribute name="Value"
+										use="required"
+										type="xs:unsignedInt"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="StackSize">
+		<xs:complexType>
+			<xs:attribute name="Value"
+										use="required"
+										type="xs:unsignedInt"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="VerifyObjMethodCallValidity">
+		<xs:complexType>
+			<xs:attribute name="Value"
+										use="required"
+										type="PascalBoolean"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Optimizations"
+							type="OptimizationLevel"/>
+	<xs:complexType name="OptimizationLevel">
+		<xs:sequence>
+			<xs:element ref="OptimizationLevel"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="OptimizationLevel">
+		<xs:complexType>
+			<xs:attribute name="Value"
+										use="required"
+										type="OptimizationLevelType"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="SmallerCode">
+		<xs:complexType>
+			<xs:attribute name="Value"
+										use="required"
+										type="PascalBoolean"/>
+		</xs:complexType>
+	</xs:element>
+	<!-- END CODE_GENERATION -->
+	<xs:element name="Linking">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Debugging"/>
+				<xs:element minOccurs="0"
+										ref="LinkSmart"/>
+				<xs:element minOccurs="0"
+										ref="Options"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<!--  START DEBUGGING AS PART OF LINKING -->
+	<xs:element name="Debugging">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element minOccurs="0"
+										ref="GenerateDebugInfo"/>
+				<xs:element minOccurs="0"
+										ref="DebugInfoType"/>
+				<xs:element minOccurs="0"
+										ref="UseHeaptrc"/>
+				<xs:element minOccurs="0"
+										ref="TrashVariables"/>
+				<xs:element minOccurs="0"
+										ref="UseValgrind"/>
+				<xs:element minOccurs="0"
+										ref="GenGProfCode"/>
+				<xs:element minOccurs="0"
+										ref="StripSymbols"/>
+				<xs:element minOccurs="0"
+										ref="UseExternalDbgSyms"/>
+				<xs:element minOccurs="0"
+										ref="Exceptions"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="GenerateDebugInfo">
+		<xs:complexType>
+			<xs:attribute name="Value"
+										use="required"
+										type="PascalBoolean"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="DebugInfoType">
+		<xs:complexType>
+			<xs:attribute name="Value"
+										default="dsDwarf3"
+										type="DebugInfoType"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="UseHeaptrc">
+		<xs:complexType>
+			<xs:attribute name="Value"
+										use="required"
+										type="PascalBoolean"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="TrashVariables">
+		<xs:complexType>
+			<xs:attribute name="Value"
+										use="required"
+										type="PascalBoolean"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="UseValgrind">
+		<xs:complexType>
+			<xs:attribute name="Value"
+										use="required"
+										type="PascalBoolean"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="GenGProfCode">
+		<xs:complexType>
+			<xs:attribute name="Value"
+										use="required"
+										type="PascalBoolean"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="StripSymbols">
+		<xs:complexType>
+			<xs:attribute name="Value"
+										use="required"
+										type="PascalBoolean"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="UseExternalDbgSyms">
+		<xs:complexType>
+			<xs:attribute name="Value"
+										use="required"
+										type="PascalBoolean"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Exceptions">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Item"
+										minOccurs="1"
+										maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="Name"
+													minOccurs="1">
+								<xs:complexType>
+									<xs:attribute name="Value"
+																type="xs:token"/>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<!--  END DEBUGGING AS PART OF LINKING -->
+	<xs:element name="Options">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element minOccurs="0"
+										ref="PassLinkerOptions"/>
+				<xs:element minOccurs="0"
+										ref="LinkerOptions"/>
+				<xs:element minOccurs="0"
+										ref="Win32"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="PassLinkerOptions">
+		<xs:complexType>
+			<xs:attribute name="Value"
+										use="required"
+										type="PascalBoolean"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="LinkerOptions">
+		<xs:complexType>
+			<xs:attribute name="Value"
+										use="required"
+										type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Win32"
+							type="GraphicApplication"/>
+	<xs:complexType name="GraphicApplication">
+		<xs:sequence>
+			<xs:element ref="GraphicApplication"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="GraphicApplication">
+		<xs:complexType>
+			<xs:attribute name="Value"
+										use="required"
+										type="PascalBoolean"/>
+		</xs:complexType>
+	</xs:element>
+	<!-- END OPTIONS -->
+	<xs:element name="LinkSmart">
+		<xs:complexType>
+			<xs:attribute name="Value"
+										use="required"
+										type="PascalBoolean"/>
+		</xs:complexType>
+	</xs:element>
+	<!-- END LINKING -->
+	<!-- END COMPILER_OPTIONS -->
+	<xs:element name="PublishOptions">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Version"/>
+				<xs:element minOccurs="0" name="OpenInFileMan">
+					<xs:complexType>
+						<xs:attribute name="Value"
+													use="required"
+													type="PascalBoolean"/>
+					</xs:complexType>
+				</xs:element>
+				<xs:element minOccurs="0"
+										ref="UseFileFilters"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="UseFileFilters">
+		<xs:complexType>
+			<xs:attribute name="Value"
+										default="False"
+										type="PascalBoolean"/>
+		</xs:complexType>
+	</xs:element>
+	<!-- END PUBLISH_OPTIONS -->
+	<xs:element name="RunParams"
+							type="FormatVersion"/>
+	<xs:complexType name="FormatVersion">
+		<xs:sequence>
+			<xs:element ref="FormatVersion"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="FormatVersion">
+		<xs:complexType>
+			<xs:attribute name="Value"
+										use="required"/>
+		</xs:complexType>
+	</xs:element>
+	<!-- END RUN_PARAMS -->
+	<xs:element name="RequiredPackages">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Item"
+										minOccurs="1"
+										maxOccurs="unbounded">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="PackageName">
+										<xs:complexType>
+											<xs:attribute name="Value"
+																		use="required"
+																		type="xs:string"/>
+										</xs:complexType>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Units">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Unit"
+										minOccurs="1"
+										maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="Filename">
+								<xs:complexType>
+									<xs:attribute name="Value"
+																use="required"
+																type="xs:string"/>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="IsPartOfProject">
+								<xs:complexType>
+									<xs:attribute name="Value"
+																use="required"
+																type="PascalBoolean"/>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="ComponentName" minOccurs="0">
+								<xs:complexType>
+									<xs:attribute name="Value"
+																use="required"
+																type="xs:token"/>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="ResourceBaseClass"
+													minOccurs="0">
+								<xs:complexType>
+									<xs:attribute name="Value"
+																use="required"
+																type="xs:token"/>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<!-- !!!!END PROJECT_OPTIONS!!!! -->
+	<xs:element name="Package">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Version"/>
+				<xs:element ref="PathDelim"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="any"
+									mixed="true">
+		<xs:sequence>
+			<xs:any minOccurs="0"
+							maxOccurs="unbounded"
+							processContents="strict"/>
+		</xs:sequence>
+	</xs:complexType>
+	<!--  Basic Types -->
+	<xs:simpleType name="PascalBoolean">
+		<xs:restriction base="xs:token">
+			<xs:enumeration value="False"/>
+			<xs:enumeration value="True"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="SessionStorageType">
+		<xs:restriction base="xs:token">
+			<xs:enumeration value="None"/>
+			<!-- ATTENTION!!! FOR BUILD!!! CAN'T STORE SESSION IN LPI! ONLY ENVS -->
+			<xs:enumeration value="InIDEConfig"/>
+      <xs:enumeration value="InProjectDir"/>
+      <xs:enumeration value="InProjectInfo"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ResourceTypeType">
+		<xs:restriction base="xs:token">
+			<xs:enumeration value="LRS"/>
+			<xs:enumeration value="res"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ExecutionLevelType">
+		<xs:restriction base="xs:token">
+			<xs:enumeration value="requireAdministrator"/>
+			<xs:enumeration value="highestAvailable"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="SyntaxModeType">
+		<xs:restriction base="xs:token">
+			<xs:enumeration value="ObjFPC"/>
+			<xs:enumeration value="gps"/>
+			<xs:enumeration value="Delphi"/>
+			<xs:enumeration value="DelphiUnicode"/>
+			<xs:enumeration value="tp"/>
+			<xs:enumeration value="fpc"/>
+			<xs:enumeration value="MacPas"/>
+			<xs:enumeration value="iso"/>
+			<xs:enumeration value="ExtPas"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="AssemblerStyleType">
+		<xs:restriction base="xs:token">
+			<!-- Intel -->
+			<xs:enumeration value="1"/>
+			<!-- AT&T -->
+			<xs:enumeration value="2"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="OptimizationLevelType">
+		<xs:restriction base="xs:token">
+			<!-- without optimizations -->
+			<xs:enumeration value="0"/>
+			<!-- -O1 -->
+			<xs:enumeration value="1"/>
+			<!-- -O2 -->
+			<xs:enumeration value="2"/>
+			<!-- -O3 -->
+			<xs:enumeration value="3"/>
+			<!-- -O4 -->
+			<xs:enumeration value="4"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="DebugInfoType">
+		<xs:restriction base="xs:token">
+			<xs:enumeration value="dsAuto"/>
+			<xs:enumeration value="dsStabs"/>
+			<xs:enumeration value="dsDwarf2Set"/>
+			<xs:enumeration value="dsDwarf3"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!--  any types(resources and others) -->
+	<xs:complexType name="IgnorableUnbounded_X_type">
+		<xs:sequence>
+			<xs:any processContents="lax"
+							minOccurs="1"
+							maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="Count"
+									use="required"/>
+	</xs:complexType>
+	<xs:complexType name="IgnorableUnboundedType">
+		<xs:sequence>
+			<xs:any processContents="lax"
+							minOccurs="1"
+							maxOccurs="unbounded"/>
+		</xs:sequence>		
+	</xs:complexType>
+</xs:schema>

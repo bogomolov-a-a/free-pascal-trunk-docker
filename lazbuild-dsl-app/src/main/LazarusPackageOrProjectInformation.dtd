@@ -11,93 +11,93 @@
     SaveJumpHistory?,SaveFoldState?,CompatibilityMode?)>
 <!ELEMENT SaveClosedFiles EMPTY>
 <!ATTLIST SaveClosedFiles
-    Value (False|True)#REQUIRED>
+    Value (False|True) "False">
 <!ELEMENT SaveOnlyProjectUnits EMPTY>
 <!ATTLIST SaveOnlyProjectUnits
-    Value (False|True)#REQUIRED>
+    Value (False|True) "False">
 <!ELEMENT MainUnitIsPascalSource EMPTY>
 <!ATTLIST MainUnitIsPascalSource
-    Value (False|True)#REQUIRED>
+    Value (False|True) "False">
 <!ELEMENT MainUnitHasUsesSectionForAllUnits EMPTY>
 <!ATTLIST MainUnitHasUsesSectionForAllUnits
-    Value (False|True)#REQUIRED>
+    Value (False|True) "False">
 <!ELEMENT MainUnitHasCreateFormStatements EMPTY>
 <!ATTLIST MainUnitHasCreateFormStatements
-    Value (False|True)#REQUIRED> 
+    Value (False|True) "False"> 
 <!ELEMENT MainUnitHasTitleStatement EMPTY>
 <!ATTLIST MainUnitHasTitleStatement
-    Value (False|True)#REQUIRED>
+    Value (False|True) "False">
 <!ELEMENT MainUnitHasScaledStatement EMPTY>
 <!ATTLIST MainUnitHasScaledStatement
-    Value (False|True)#REQUIRED>
+    Value (False|True) "False">
 <!ELEMENT Runnable EMPTY>
 <!ATTLIST Runnable
-    Value (False|True)#REQUIRED>
+    Value (False|True) "False">
 <!ELEMENT AlwaysBuild EMPTY>
 <!ATTLIST AlwaysBuild
-    Value (False|True)#REQUIRED>
+    Value (False|True) "False">
 <!ELEMENT UseDesignTimePackages EMPTY>
 <!ATTLIST UseDesignTimePackages
-    Value (False|True)#REQUIRED>
+    Value (False|True) "False">
 <!ELEMENT LRSInOutputDirectory EMPTY>
 <!ATTLIST LRSInOutputDirectory
-    Value (False|True)#REQUIRED>
+    Value (False|True) "False">
 <!ELEMENT UseDefaultCompilerOptions EMPTY>
 <!ATTLIST UseDefaultCompilerOptions
-    Value (False|True)#REQUIRED>
+    Value (False|True) "False">
 <!ELEMENT SaveJumpHistory EMPTY>    
 <!ATTLIST SaveJumpHistory
-    Value (False|True)#REQUIRED>
+    Value (False|True) "False">
 <!ELEMENT SaveFoldState EMPTY>  
 <!ATTLIST SaveFoldState
-    Value (False|True)#REQUIRED>
+    Value (False|True) "False">
 <!ELEMENT CompatibilityMode EMPTY>  
 <!ATTLIST CompatibilityMode
-    Value (False|True)#REQUIRED> 
+    Value (False|True) "False"> 
 <!-- END FLAGS -->
 <!ELEMENT SessionStorage EMPTY>    
 <!ATTLIST SessionStorage 
-    Value (None|InIDEConfig|InProjectDir|InProjectInfo) #REQUIRED >
+    Value (None|InIDEConfig|InProjectDir|InProjectInfo)  "None" >
 <!ELEMENT MainUnit EMPTY>     
 <!ATTLIST MainUnit 
     Value CDATA #REQUIRED >
 <!ELEMENT AutoCreateForms EMPTY>   
 <!ATTLIST AutoCreateForms
-    Value (False|True) #REQUIRED>  
+    Value (False|True)  "False">  
 <!ELEMENT Title EMPTY>        
 <!ATTLIST Title
     Value NMTOKEN #REQUIRED>
 <!ELEMENT Scaled EMPTY>  
 <!ATTLIST Scaled
-    Value (False|True) #REQUIRED> 
+    Value (False|True)  "False"> 
 <!ELEMENT UseAppBundle EMPTY>   
 <!ATTLIST UseAppBundle 
-    Value (False|True) #REQUIRED> 
+    Value (False|True)  "False"> 
 <!ELEMENT NSPrincipalClass EMPTY>   
 <!ATTLIST NSPrincipalClass
      Value CDATA #REQUIRED>
  <!ELEMENT ResourceType EMPTY> 
 <!ATTLIST ResourceType
-    Value (LRS|res) #REQUIRED> 
+    Value (LRS|res)  "res"> 
 <!ELEMENT UseXPManifest EMPTY >
 <!ATTLIST UseXPManifest
-     Value (False|True) #REQUIRED>   
-<!ELEMENT XPManifest(DpiAware?, ExecutionLevel?,UIAccess?,LongPathAware?,AnsiUTF8?,TextName?,TextDesc?) >
+     Value (False|True)  "False">   
+<!ELEMENT XPManifest (DpiAware?, ExecutionLevel?,UIAccess?,LongPathAware?,AnsiUTF8?,TextName?,TextDesc?) >
 <!ELEMENT DpiAware EMPTY >
 <!ATTLIST DpiAware
-     Value (False|True|Per-monitor) #REQUIRED>   
+     Value CDATA #REQUIRED>   
 <!ELEMENT UIAccess EMPTY >
 <!ATTLIST UIAccess
-     Value (False|True) #REQUIRED>   
+     Value (False|True)  "False">   
 <!ELEMENT ExecutionLevel EMPTY >
 <!ATTLIST ExecutionLevel
-     Value (requireAdministrator|highestAvailable) #REQUIRED>   
+     Value (requireAdministrator|highestAvailable)  "requireAdministrator">   
 <!ELEMENT LongPathAware EMPTY >
 <!ATTLIST LongPathAware
-     Value (False|True) #REQUIRED>
+     Value (False|True)  "False">
 <!ELEMENT AnsiUTF8 EMPTY >
 <!ATTLIST AnsiUTF8
-     Value (False|True) #REQUIRED>
+     Value (False|True)  "False">
 <!ELEMENT TextName EMPTY >
 <!ATTLIST TextName
      Value CDATA #REQUIRED>  
@@ -111,13 +111,13 @@
 <!--  END GENERAL --> 
 <!ELEMENT LazDoc EMPTY >
 <!ATTLIST LazDoc
-    Paths CDATA #IMPLIED 
-    PackageName CDATA #IMPLIED>  
+    Paths CDATA  #IMPLIED 
+    PackageName CDATA  #IMPLIED>  
 <!--  END LAZ DOC -->
-<!ELEMENT i18n (EnableI18N,OutDir?,ExcludedIdentifiers?,ExcludedOriginals?) >   
+<!ELEMENT i18n (EnableI18N?,OutDir?,ExcludedIdentifiers?,ExcludedOriginals?) >   
 <!ELEMENT EnableI18N EMPTY >
 <!ATTLIST EnableI18N
-     Value (False|True) #REQUIRED>
+     Value (False|True)  "False">
 <!ELEMENT OutDir EMPTY >
 <!ATTLIST OutDir
      Value CDATA #REQUIRED>
@@ -128,13 +128,13 @@
 <!ATTLIST ExcludedOriginals 
     Count CDATA #REQUIRED>
 <!-- END i18n -->
-<!ELEMENT VersionInfo (UseVersionInfo,AutoIncrementBuild?,MajorVersionNr?,MinorVersionNr?,RevisionNr?,BuildNr?,Attributes?,StringTable?) >
+<!ELEMENT VersionInfo (UseVersionInfo?,AutoIncrementBuild?,MajorVersionNr?,MinorVersionNr?,RevisionNr?,BuildNr?,Attributes?,StringTable?) >
 <!ELEMENT UseVersionInfo EMPTY >
 <!ATTLIST UseVersionInfo
-     Value (False|True) #REQUIRED>
+     Value (False|True)  "False">
 <!ELEMENT AutoIncrementBuild EMPTY >
 <!ATTLIST AutoIncrementBuild
-     Value (False|True) #REQUIRED>
+     Value (False|True)  "False">
 <!ELEMENT MajorVersionNr EMPTY >
 <!ATTLIST MajorVersionNr
      Value CDATA #REQUIRED>  
@@ -149,29 +149,30 @@
      Value CDATA #REQUIRED>  
  <!ELEMENT Attributes EMPTY >   
  <!ATTLIST Attributes
-     pvaDebug (False|True) #IMPLIED
-     pvaPreRelease (False|True) #IMPLIED
-     pvaPatched (False|True) #IMPLIED
-     pvaPrivateBuild (False|True) #IMPLIED
-     pvaSpecialBuild (False|True) #IMPLIED>
+     pvaDebug (False|True)  #IMPLIED
+     pvaPreRelease (False|True)  #IMPLIED
+     pvaPatched (False|True)  #IMPLIED
+     pvaPrivateBuild (False|True)  #IMPLIED
+     pvaSpecialBuild (False|True)  #IMPLIED>
  <!ELEMENT StringTable EMPTY >         
  <!ATTLIST Attributes
-     Comments CDATA #IMPLIED
-     CompanyName CDATA #IMPLIED
-     FileDescription CDATA #IMPLIED
-     InternalName CDATA #IMPLIED
-     LegalCopyright CDATA #IMPLIED
-     LegalTrademarks CDATA #IMPLIED
-     OriginalFilename CDATA #IMPLIED
-     ProductName CDATA #IMPLIED
-     ProductVersion CDATA #IMPLIED
-     PrivateBuild CDATA #IMPLIED
-     SpecialBuild CDATA #IMPLIED>
+     Comments CDATA  #IMPLIED
+     CompanyName CDATA  #IMPLIED
+     FileDescription CDATA  #IMPLIED
+     InternalName CDATA  #IMPLIED
+     LegalCopyright CDATA  #IMPLIED
+     LegalTrademarks CDATA  #IMPLIED
+     OriginalFilename CDATA  #IMPLIED
+     ProductName CDATA  #IMPLIED
+     ProductVersion CDATA  #IMPLIED
+     PrivateBuild CDATA  #IMPLIED
+     SpecialBuild CDATA  #IMPLIED>
 <!-- END VERSION_INFO -->
 <!ELEMENT BuildModes ANY>
 <!ATTLIST BuildModes 
-    Count CDATA #REQUIRED>    
-<!ELEMENT CompilerOptions (Version,PathDelim,Target,SearchPaths,Parsing,CodeGeneration)>
+    Count CDATA #REQUIRED>  
+<!-- !!START COMPILER_OPTIONS AS PART BUILD_MODE ITEM!! -->  
+<!ELEMENT CompilerOptions (Version,PathDelim,Target,SearchPaths,Parsing,CodeGeneration,Linking,Other)>
 <!ELEMENT Target (Filename) >
 <!ELEMENT Filename EMPTY >
 <!ATTLIST Filename 
@@ -190,11 +191,128 @@
 <!ATTLIST UnitOutputDirectory 
     Value CDATA #REQUIRED> 
 <!--  END SEARCH PATHS -->
-<!ELEMENT Parsing (Style,SyntaxOptions)>
+<!ELEMENT Parsing (Style?,SyntaxOptions)>
 <!ELEMENT Style EMPTY >
 <!ATTLIST Style
-    Value (1|2) #REQUIRED >
-<!ELEMENT SyntaxOptions (SyntaxMode,CStyleOperator,IncludeAssertionCode,AllowLabel,CStyleMacros,InitConstructor,UseAnsiStrings)>
-<!ELEMENT CodeGeneration EMPTY>
-<!ELEMENT Debugging EMPTY>
+    Value (1|2)  "1" >
+<!ELEMENT SyntaxOptions (SyntaxMode?,CStyleOperator?,IncludeAssertionCode?,AllowLabel?,CStyleMacros?,InitConstructor?,UseAnsiStrings?)>
+<!ELEMENT SyntaxMode EMPTY >
+<!ATTLIST SyntaxMode
+    Value (ObjFPC|gps|Delphi|DelphiUnicode|tp|fpc|MacPas|iso|ExtPas)  "ObjFPC" >
+<!ELEMENT CStyleOperator EMPTY >
+<!ATTLIST CStyleOperator
+     Value (False|True)  "False">
+<!ELEMENT IncludeAssertionCode EMPTY >
+<!ATTLIST IncludeAssertionCode
+     Value (False|True)  "False">
+<!ELEMENT AllowLabel EMPTY >
+<!ATTLIST AllowLabel
+     Value (False|True)  "False">
+<!ELEMENT CStyleMacros EMPTY >
+<!ATTLIST CStyleMacros
+     Value (False|True)  "False">
+<!ELEMENT InitConstructor EMPTY >
+<!ATTLIST InitConstructor
+     Value (False|True)  "False">
+<!ELEMENT UseAnsiStrings EMPTY >
+<!ATTLIST UseAnsiStrings
+     Value (False|True)  "False">  
+<!-- END PARSING -->  
+<!ELEMENT CodeGeneration (SmartLinkUnit?,RelocatableUnit?,Checks?,HeapSize?,StackSize?,VerifyObjMethodCallValidity?,Optimizations,SmallerCode?)>
+<!ELEMENT SmartLinkUnit EMPTY >
+<!ATTLIST SmartLinkUnit
+     Value (False|True)  "False">
+<!ELEMENT RelocatableUnit EMPTY >
+<!ATTLIST RelocatableUnit
+     Value (False|True)  "False"> 
+<!ELEMENT Checks (IOChecks?,RangeChecks?,OverflowChecks?,StackChecks?) >
+<!ELEMENT IOChecks EMPTY >
+<!ATTLIST IOChecks
+     Value (False|True)  "False">
+<!ELEMENT RangeChecks EMPTY >
+<!ATTLIST RangeChecks
+     Value (False|True)  "False">  
+<!ELEMENT OverflowChecks EMPTY >
+<!ATTLIST OverflowChecks
+     Value (False|True)  "False">
+<!ELEMENT StackChecks EMPTY >
+<!ATTLIST StackChecks
+     Value (False|True)  "False">  
+ <!-- END CHECKS -->    
+<!ELEMENT HeapSize EMPTY >
+<!ATTLIST HeapSize
+     Value CDATA #REQUIRED>
+<!ELEMENT StackSize EMPTY >
+<!ATTLIST StackSize
+     Value CDATA #REQUIRED>
+<!ELEMENT VerifyObjMethodCallValidity EMPTY >
+<!ATTLIST VerifyObjMethodCallValidity
+     Value (False|True)  "False">
+<!ELEMENT Optimizations (OptimizationLevel) >
+<!ELEMENT OptimizationLevel EMPTY >
+<!ATTLIST OptimizationLevel
+    Value (0|1|2|3|4)  "1" >
+<!ELEMENT SmallerCode EMPTY >
+<!ATTLIST SmallerCode
+     Value (False|True)  "False">     
+<!-- END CODE_GENERATION -->
+<!ELEMENT Linking (Debugging,LinkSmart?,Options?)>
+<!-- START DEBUGGING AS PART OF LINKING-->
+<!ELEMENT Debugging (GenerateDebugInfo?,DebugInfoType?,UseHeaptrc?,TrashVariables?,UseValgrind?,GenGProfCode?,StripSymbols?,UseExternalDbgSyms?)>
+<!ELEMENT GenerateDebugInfo EMPTY >
+<!ATTLIST GenerateDebugInfo
+     Value (False|True)  "False">
+<!ELEMENT DebugInfoType EMPTY >
+<!ATTLIST DebugInfoType
+     Value (dsAuto|dsStabs|dsDwarf2Set|dsDwarf3)  "dsDwarf3">
+<!ELEMENT UseHeaptrc EMPTY >
+<!ATTLIST UseHeaptrc
+     Value (False|True)  "False">
+<!ELEMENT TrashVariables EMPTY >
+<!ATTLIST TrashVariables
+     Value (False|True)  "False">
+<!ELEMENT UseValgrind EMPTY >
+<!ATTLIST UseValgrind
+     Value (False|True)  "False">
+<!ELEMENT GenGProfCode EMPTY >
+<!ATTLIST GenGProfCode
+     Value (False|True)  "False">
+<!ELEMENT StripSymbols EMPTY >
+<!ATTLIST StripSymbols
+     Value (False|True)  "False">
+<!ELEMENT UseExternalDbgSyms EMPTY >
+<!ATTLIST UseExternalDbgSyms
+     Value (False|True)  "False">
+<!-- END DEBUGGING AS PART OF LINKING-->
+<!ELEMENT Options (PassLinkerOptions?,LinkerOptions?,Win32?) >
+<!ELEMENT PassLinkerOptions EMPTY >
+<!ATTLIST PassLinkerOptions
+     Value (False|True)  "False">
+<!ELEMENT LinkerOptions EMPTY >
+<!ATTLIST LinkerOptions
+     Value CDATA #REQUIRED>     
+<!ELEMENT Win32 (GraphicApplication) >
+<!ELEMENT GraphicApplication EMPTY >
+<!ATTLIST GraphicApplication
+     Value (False|True)  "False">
+<!-- END OPTIONS -->
+<!ELEMENT LinkSmart EMPTY >
+<!ATTLIST LinkSmart
+     Value (False|True)  "False">
+<!-- END LINKING -->
+<!-- END COMPILER_OPTIONS -->
+<!ELEMENT PublishOptions (Version,UseFileFilters?) >
+<!ELEMENT UseFileFilters EMPTY >
+<!ATTLIST UseFileFilters
+     Value (False|True)  "False">
+<!-- END PUBLISH_OPTIONS -->
+<!ELEMENT RunParams (FormatVersion)>
+<!ELEMENT FormatVersion EMPTY >
+<!ATTLIST FormatVersion
+     Value CDATA #REQUIRED>     
+<!-- END RUN_PARAMS -->
+<!ELEMENT Units ANY >
+<!ATTLIST Units 
+    Count CDATA #REQUIRED>
+<!-- !!!!END PROJECT_OPTIONS!!!! -->
 <!ELEMENT Package (Version,PathDelim) >

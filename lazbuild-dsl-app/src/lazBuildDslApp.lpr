@@ -5,11 +5,11 @@ uses
   Sysutils,
   CustApp,
   XMLConf,
-  XMLRead,
-  lazBuildDslApp.Model in 'main/lazBuildDslApp.Model.pas';
+  libxml2,
+  lazBuildDslApp.Model in 'main/lazBuildDslApp.Model.pas', Unit1;
 
 const
-  APPLICATION_BUILD_INFO_FILE_NAME = 'app/app-build-info-descriptor';
+  APPLICATION_BUILD_INFO_FILE_NAME = 'app/app-build-info-descriptor'#0;
   DESCRIPTOR_FILE_NAME_OPTION = 'f';
 type
   { TLazBuildDSLApplication }
@@ -17,39 +17,37 @@ type
   TLazBuildDSLApplication = class(TCustomApplication)
   strict private
     FFileName: string;
-    FBuildFileStream: TStringStream;
-    procedure HandleBuildScript(Data: string);
+    procedure HandleBuildScript();
   public
     constructor Create(AOwner: TComponent); override;
     procedure DoRun; override;
     destructor Destroy; override;
   end;
 
-{$R *.res}
-
   { TLazBuildDSLApplication }
 
   constructor TLazBuildDSLApplication.Create(AOwner: TComponent);
     begin
       inherited Create(AOwner);
-      FBuildFileStream := TStringStream.Create;
       FFileName := ExtractFilePath(ExcludeTrailingPathDelimiter(Location)) + APPLICATION_BUILD_INFO_FILE_NAME;
     end;
 
   destructor TLazBuildDSLApplication.Destroy;
     begin
-      FreeAndNil(FBuildFileStream);
       FFileName := EmptyStr;
       inherited Destroy;
     end;
 
-  procedure TLazBuildDSLApplication.HandleBuildScript(Data: string);
-   { var
-      TDOm}
-    //  ApplicationBuildInfo: TApplicationBuildInfoCollection;
+  procedure TLazBuildDSLApplication.HandleBuildScript();
+    var
+      doc: xmlDocPtr;
     begin
-      {ApplicationBuildInfo.GenerateBuildScript();
-      FreeAndNil(ApplicationBuildInfo);}
+      doc := xmlReadFile(Pchar(@FFileName[1]),PChar('utf-8'#0),0);
+      try
+      finally
+        xmlFreeDoc(doc);
+
+      end;
     end;
 
   procedure TLazBuildDSLApplication.DoRun;
@@ -65,11 +63,10 @@ type
         exit;
       end;
       if HasOption(DESCRIPTOR_FILE_NAME_OPTION) and (GetOptionValue(DESCRIPTOR_FILE_NAME_OPTION, EmptyStr).Trim() <> EmptyStr) then
-        FFileName := GetOptionValue(DESCRIPTOR_FILE_NAME_OPTION, EmptyStr);
+        FFileName := GetOptionValue(DESCRIPTOR_FILE_NAME_OPTION, EmptyStr)+#0;
       writeln(format('try to build application from building descriptor at ''%s''', [FFileName]));
-     { try
-        FBuildFileStream.LoadFromFile(FFileName);
-        HandleBuildScript(FBuildFileStream.DataString);
+      try
+        HandleBuildScript();
       except
         on e: Exception do
         begin
@@ -78,13 +75,16 @@ type
           Terminate;
           exit;
         end;
-      end;}
+      end;
       writeln(format('application from building descriptor at ''%s'' built', [FFileName]));
       Terminate;
     end;
 
 var
   Application: TLazBuildDSLApplication;
+
+{$R *.res}
+
 begin
   Application := TLazBuildDSLApplication.Create(nil);
   Application.Run;
