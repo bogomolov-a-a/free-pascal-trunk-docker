@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<CONFIG>
+<CONFIG xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn://org/freepascal/lazarus/CONFIG/2.3.0/LPK"
+				xsi:schemaLocation="urn://org/freepascal/lazarus/CONFIG/2.3.0/LPK file:///C:/Users/artem.bogomolov.a/develop/projects/opensource/freepascal/free-pascal-trunk-docker/schemas/2.3.0/LazarusPackage.xsd">
   <Package Version="5">
     <PathDelim Value="\"/>
     <Name Value="libxml2_pas"/>
-    <Type Value="RunAndDesignTime"/>
+    <Type Value="DesignTime"/>
+    <AddToProjectUsesSection Value="True"/>
+    <Author Value="про"/>
+    <AutoUpdate Value="OnRebuildingAll"/>
     <CompilerOptions>
       <Version Value="11"/>
       <PathDelim Value="\"/>
@@ -17,39 +21,74 @@
         </Debugging>
       </Linking>
     </CompilerOptions>
-    <Files>
-      <Item>
+    <Description Value="проа"/>
+    <License Value="нгоангп"/>
+    <Version Major="1" Minor="1" Release="1" Build="1"/>
+    <Files Count="5">
+      <Item1>
         <Filename Value="iconv.pas"/>
         <UnitName Value="iconv"/>
-      </Item>
-      <Item>
+      </Item1>
+      <Item2>
         <Filename Value="libexslt.pas"/>
         <UnitName Value="libexslt"/>
-      </Item>
-      <Item>
+      </Item2>
+      <Item3>
         <Filename Value="libxml2.pas"/>
         <UnitName Value="libxml2"/>
-      </Item>
-      <Item>
+      </Item3>
+      <Item4>
         <Filename Value="libxmlsec.pas"/>
         <UnitName Value="libxmlsec"/>
-      </Item>
-      <Item>
+      </Item4>
+      <Item5>
         <Filename Value="libxslt.pas"/>
         <UnitName Value="libxslt"/>
-      </Item>
+      </Item5>
     </Files>
-    <RequiredPkgs>
-      <Item>
-        <PackageName Value="FCL"/>
-      </Item>
-    </RequiredPkgs>
+    <CompatibilityMode Value="True"/>
+    <LazDoc Paths="про"/>
+    <i18n>
+      <EnableI18N Value="True"/>
+      <OutDir Value="sda"/>
+      <EnableI18NForLFM Value="True"/>
+    </i18n>
     <UsageOptions>
+      <CustomOptions Value="zxcvfvdvdxbxcvbdxbvxcfbdfbxcvbxdfxc"/>
+      <IncludePath Value="xcvb"/>
+      <LibraryPath Value="xcvbx"/>
+      <LinkerOptions Value="xvxc"/>
+      <ObjectPath Value="cvb"/>
       <UnitPath Value="$(PkgOutDir)"/>
     </UsageOptions>
     <PublishOptions>
       <Version Value="2"/>
       <UseFileFilters Value="True"/>
     </PublishOptions>
+    <Provides Count="1">
+      <Item1 Value="енгнгпнгшплшгшещ78пше68енгше7"/>
+    </Provides>
+    <CustomOptions Items="Fppkg" Version="2">
+      <_Fppkg Items="CustomCodeCount/CustomCodeItem1/PackageVariants">
+        <_CustomCodeCount Value="1"/>
+        <_CustomCodeItem1 Items="Value">
+          <_Value Value="ghggjkghjfh"/>
+        </_CustomCodeItem1>
+        <_PackageVariants Items="Items">
+          <_Items Items="Count/Item1">
+            <_Count Value="1"/>
+            <_Item1 Items="Items/name">
+              <_Items Items="Count/Item1">
+                <_Count Value="1"/>
+                <_Item1 Items="name">
+                  <_name Value="ghjhj"/>
+                </_Item1>
+              </_Items>
+              <_name Value="gjgh"/>
+            </_Item1>
+          </_Items>
+        </_PackageVariants>
+      </_Fppkg>
+    </CustomOptions>
   </Package>
 </CONFIG>

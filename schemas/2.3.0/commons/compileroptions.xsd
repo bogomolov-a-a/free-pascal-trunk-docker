@@ -1,0 +1,380 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created with Liquid Studio 2021 (https://www.liquid-technologies.com) -->
+<xs:schema elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+					  targetNamespace="urn://org/freepascal/lazarus/CONFIG/2.3.0/COMPILE_OPTIONS"
+					 xmlns="urn://org/freepascal/lazarus/CONFIG/2.3.0/COMPILE_OPTIONS"
+					 xmlns:basic="urn://org/freepascal/lazarus/CONFIG/2.3.0/BASIC"
+					 xmlns:dbg="urn://org/freepascal/lazarus/CONFIG/2.3.0/DEBUGGING">
+<!-- !!START COMPILER_OPTIONS AS PART BUILD_MODE ITEM!! -->
+	<xs:import namespace="urn://org/freepascal/lazarus/CONFIG/2.3.0/BASIC"
+						 schemaLocation="basictypes.xsd"/>
+	<xs:import namespace="urn://org/freepascal/lazarus/CONFIG/2.3.0/DEBUGGING"
+						 schemaLocation="debugging.xsd"/>
+
+	<xs:complexType name="CompilerOptions">
+			<xs:sequence>
+				<xs:element name="Version" type="basic:VersionType"/>
+				<xs:element name="PathDelim" type="basic:PathDelimType"/>
+				<xs:element ref="Target"/>
+				<xs:element ref="SearchPaths"/>
+				<xs:element ref="Parsing" minOccurs="0"/>
+				<xs:element ref="CodeGeneration"/>
+				<xs:element ref="Linking"/>
+				<xs:element name="Other" type="basic:IgnorableUnboundedType" minOccurs="0"/>
+			</xs:sequence>
+	</xs:complexType>
+	<xs:element name="Target"
+										type="Filename"/>
+	<xs:complexType name="Filename">
+		<xs:sequence>
+			<xs:element ref="Filename"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="Filename">
+		<xs:complexType>
+			<xs:attribute name="Value"
+										use="required"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="SearchPaths">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="IncludeFiles"/>
+				<xs:element minOccurs="0"
+										ref="Libraries"/>
+				<xs:element minOccurs="0"
+										ref="OtherUnitFiles"/>
+				<xs:element ref="UnitOutputDirectory"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="IncludeFiles">
+		<xs:complexType>
+			<xs:attribute name="Value"
+										use="required"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Libraries">
+		<xs:complexType>
+			<xs:attribute name="Value"
+										use="required"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="OtherUnitFiles">
+		<xs:complexType>
+			<xs:attribute name="Value"
+										use="required"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="UnitOutputDirectory">
+		<xs:complexType>
+			<xs:attribute name="Value"
+										use="required"/>
+		</xs:complexType>
+	</xs:element>
+	<!-- END SEARCH PATHS -->
+	<xs:element name="Parsing">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element minOccurs="0"
+										ref="Style"/>
+				<xs:element ref="SyntaxOptions"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Style">
+		<xs:complexType>
+			<xs:attribute name="Value"
+										default="1"
+										type="AssemblerStyleType"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="SyntaxOptions">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element minOccurs="0"
+										ref="SyntaxMode"/>
+				<xs:element minOccurs="0"
+										ref="CStyleOperator"/>
+				<xs:element minOccurs="0"
+										ref="IncludeAssertionCode"/>
+				<xs:element minOccurs="0"
+										ref="AllowLabel"/>
+				<xs:element minOccurs="0"
+										ref="CStyleMacros"/>
+				<xs:element minOccurs="0"
+										ref="InitConstructor"/>
+				<xs:element minOccurs="0"
+										ref="UseAnsiStrings"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="SyntaxMode">
+		<xs:complexType>
+			<xs:attribute name="Value"
+										default="ObjFPC"
+										type="SyntaxModeType"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CStyleOperator">
+		<xs:complexType>
+			<xs:attribute name="Value"
+										use="required"
+										type="basic:PascalBoolean"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="IncludeAssertionCode">
+		<xs:complexType>
+			<xs:attribute name="Value"
+										use="required"
+										type="basic:PascalBoolean"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="AllowLabel">
+		<xs:complexType>
+			<xs:attribute name="Value"
+										use="required"
+										type="basic:PascalBoolean"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CStyleMacros">
+		<xs:complexType>
+			<xs:attribute name="Value"
+										use="required"
+										type="basic:PascalBoolean"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="InitConstructor">
+		<xs:complexType>
+			<xs:attribute name="Value"
+										use="required"
+										type="basic:PascalBoolean"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="UseAnsiStrings">
+		<xs:complexType>
+			<xs:attribute name="Value"
+										use="required"
+										type="basic:PascalBoolean"/>
+		</xs:complexType>
+	</xs:element>
+	<!-- END PARSING -->
+	<xs:element name="CodeGeneration">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element minOccurs="0"
+										ref="SmartLinkUnit"/>
+				<xs:element minOccurs="0"
+										ref="RelocatableUnit"/>
+				<xs:element minOccurs="0"
+										ref="Checks"/>
+				<xs:element minOccurs="0"
+										ref="HeapSize"/>
+				<xs:element minOccurs="0"
+										ref="StackSize"/>
+				<xs:element minOccurs="0"
+										ref="VerifyObjMethodCallValidity"/>
+				<xs:element ref="Optimizations" minOccurs="0"/>
+				<xs:element minOccurs="0"
+										ref="SmallerCode"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="SmartLinkUnit">
+		<xs:complexType>
+			<xs:attribute name="Value"
+										use="required"
+										type="basic:PascalBoolean"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="RelocatableUnit">
+		<xs:complexType>
+			<xs:attribute name="Value"
+										use="required"
+										type="basic:PascalBoolean"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Checks">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element minOccurs="0"
+										ref="IOChecks"/>
+				<xs:element minOccurs="0"
+										ref="RangeChecks"/>
+				<xs:element minOccurs="0"
+										ref="OverflowChecks"/>
+				<xs:element minOccurs="0"
+										ref="StackChecks"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="IOChecks">
+		<xs:complexType>
+			<xs:attribute name="Value"
+										use="required"
+										type="basic:PascalBoolean"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="RangeChecks">
+		<xs:complexType>
+			<xs:attribute name="Value"
+										use="required"
+										type="basic:PascalBoolean"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="OverflowChecks">
+		<xs:complexType>
+			<xs:attribute name="Value"
+										use="required"
+										type="basic:PascalBoolean"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="StackChecks">
+		<xs:complexType>
+			<xs:attribute name="Value"
+										use="required"
+										type="basic:PascalBoolean"/>
+		</xs:complexType>
+	</xs:element>
+	<!-- END CHECKS -->
+	<xs:element name="HeapSize">
+		<xs:complexType>
+			<xs:attribute name="Value"
+										use="required"
+										type="xs:unsignedInt"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="StackSize">
+		<xs:complexType>
+			<xs:attribute name="Value"
+										use="required"
+										type="xs:unsignedInt"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="VerifyObjMethodCallValidity">
+		<xs:complexType>
+			<xs:attribute name="Value"
+										use="required"
+										type="basic:PascalBoolean"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Optimizations"
+							type="OptimizationLevel"/>
+	<xs:complexType name="OptimizationLevel">
+		<xs:sequence>
+			<xs:element ref="OptimizationLevel"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="OptimizationLevel">
+		<xs:complexType>
+			<xs:attribute name="Value"
+										use="required"
+										type="OptimizationLevelType"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="SmallerCode">
+		<xs:complexType>
+			<xs:attribute name="Value"
+										use="required"
+										type="basic:PascalBoolean"/>
+		</xs:complexType>
+	</xs:element>
+	<!-- END CODE_GENERATION -->
+	<xs:element name="Linking">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="dbg:Debugging"/>
+				<xs:element minOccurs="0"
+										ref="LinkSmart"/>
+				<xs:element minOccurs="0"
+										ref="Options"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Options">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element minOccurs="0"
+										ref="PassLinkerOptions"/>
+				<xs:element minOccurs="0"
+										ref="LinkerOptions"/>
+				<xs:element minOccurs="0"
+										ref="Win32"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="PassLinkerOptions">
+		<xs:complexType>
+			<xs:attribute name="Value"
+										use="required"
+										type="basic:PascalBoolean"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="LinkerOptions">
+		<xs:complexType>
+			<xs:attribute name="Value"
+										use="required"
+										type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Win32"
+							type="GraphicApplication"/>
+	<xs:complexType name="GraphicApplication">
+		<xs:sequence>
+			<xs:element ref="GraphicApplication"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="GraphicApplication">
+		<xs:complexType>
+			<xs:attribute name="Value"
+										use="required"
+										type="basic:PascalBoolean"/>
+		</xs:complexType>
+	</xs:element>
+	<!-- END OPTIONS -->
+	<xs:element name="LinkSmart">
+		<xs:complexType>
+			<xs:attribute name="Value"
+										use="required"
+										type="basic:PascalBoolean"/>
+		</xs:complexType>
+	</xs:element>
+	<!-- END LINKING -->
+	<!-- END COMPILER_OPTIONS -->
+	<xs:simpleType name="OptimizationLevelType">
+		<xs:restriction base="xs:token">
+			<!-- without optimizations -->
+			<xs:enumeration value="0"/>
+			<!-- -O1 -->
+			<xs:enumeration value="1"/>
+			<!-- -O2 -->
+			<xs:enumeration value="2"/>
+			<!-- -O3 -->
+			<xs:enumeration value="3"/>
+			<!-- -O4 -->
+			<xs:enumeration value="4"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="AssemblerStyleType">
+		<xs:restriction base="xs:token">
+			<!-- Intel -->
+			<xs:enumeration value="1"/>
+			<!-- AT&T -->
+			<xs:enumeration value="2"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="SyntaxModeType">
+		<xs:restriction base="xs:token">
+			<xs:enumeration value="ObjFPC"/>
+			<xs:enumeration value="gps"/>
+			<xs:enumeration value="Delphi"/>
+			<xs:enumeration value="DelphiUnicode"/>
+			<xs:enumeration value="tp"/>
+			<xs:enumeration value="fpc"/>
+			<xs:enumeration value="MacPas"/>
+			<xs:enumeration value="iso"/>
+			<xs:enumeration value="ExtPas"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+</xs:schema>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created with Liquid Studio 2021 (https://www.liquid-technologies.com) -->
+<xs:schema elementFormDefault="qualified"
+					 xmlns:xs="http://www.w3.org/2001/XMLSchema"
+					 targetNamespace="urn://org/freepascal/lazarus/CONFIG/2.3.0/LPK"
+					 xmlns="urn://org/freepascal/lazarus/CONFIG/2.3.0/LPK"
+					 xmlns:basic="urn://org/freepascal/lazarus/CONFIG/2.3.0/BASIC">
+	<xs:import namespace="urn://org/freepascal/lazarus/CONFIG/2.3.0/BASIC"
+						 schemaLocation="commons/basictypes.xsd"/>
+	<xs:element name="CONFIG">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Package"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Package">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="PathDelim" type="basic:PathDelimType"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

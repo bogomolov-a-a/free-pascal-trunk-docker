@@ -6,7 +6,8 @@ uses
   CustApp,
   XMLConf,
   libxml2,
-  lazBuildDslApp.Model in 'main/lazBuildDslApp.Model.pas', Unit1;
+  lazBuildDslApp.Model in 'main/lazBuildDslApp.Model.pas', 
+lazBuildDslApp.Service;
 
 const
   APPLICATION_BUILD_INFO_FILE_NAME = 'app/app-build-info-descriptor'#0;
@@ -46,7 +47,6 @@ type
       try
       finally
         xmlFreeDoc(doc);
-
       end;
     end;
 

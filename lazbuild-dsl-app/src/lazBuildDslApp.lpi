@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<CONFIG xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn://org/freepascal/lazarus/LPI_LPK_CONFIG/2.3.0 file:///C:/Users/artem.bogomolov.a/develop/projects/opensource/freepascal/free-pascal-trunk-docker/lazbuild-dsl-app/src/main/LazarusPackageOrProjectInformation.xsd" xmlns="urn://org/freepascal/lazarus/LPI_LPK_CONFIG/2.3.0">
+<CONFIG>
   <ProjectOptions>
     <Version Value="12"/>
     <General>
@@ -47,7 +47,7 @@
       <MajorVersionNr Value="1"/>
       <MinorVersionNr Value="1"/>
       <RevisionNr Value="1"/>
-      <BuildNr Value="13"/>
+      <BuildNr Value="16"/>
       <Attributes pvaDebug="True" pvaPreRelease="True" pvaPatched="True" pvaPrivateBuild="True" pvaSpecialBuild="True"/>
       <StringTable Comments="g" CompanyName="g" FileDescription="dfgs" InternalName="fgh" LegalCopyright="fgh" LegalTrademarks="dfgh" OriginalFilename="dfgh" ProductName="dfg" ProductVersion="dfgh" PrivateBuild="dfgh" SpecialBuild="dfgh"/>
     </VersionInfo>
@@ -175,9 +175,6 @@ fghjkl;&apos;"/>
     </RunParams>
     <RequiredPackages>
       <Item>
-        <PackageName Value="LCL"/>
-      </Item>
-      <Item>
         <PackageName Value="libxml2_pas"/>
       </Item>
     </RequiredPackages>
@@ -191,10 +188,8 @@ fghjkl;&apos;"/>
         <IsPartOfProject Value="True"/>
       </Unit>
       <Unit>
-        <Filename Value="Unit1.pas"/>
+        <Filename Value="main/lazBuildDslApp.Service.pas"/>
         <IsPartOfProject Value="True"/>
-        <ComponentName Value="Form1"/>
-        <ResourceBaseClass Value="Form"/>
       </Unit>
     </Units>
   </ProjectOptions>

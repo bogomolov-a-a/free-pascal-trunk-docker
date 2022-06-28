@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Liquid Studio 2021 (https://www.liquid-technologies.com) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+					 elementFormDefault="qualified"
+					 targetNamespace="urn://org/freepascal/lazarus/CONFIG/2.3.0/BASIC"
+					 xmlns="urn://org/freepascal/lazarus/CONFIG/2.3.0/BASIC">
+	<!--  Basic Types -->
+	<xs:simpleType name="PascalBoolean">
+		<xs:restriction base="xs:token">
+			<xs:enumeration value="False"/>
+			<xs:enumeration value="True"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ResourceTypeType">
+		<xs:restriction base="xs:token">
+			<xs:enumeration value="LRS"/>
+			<xs:enumeration value="res"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="WithBooleanValueAttributeType">
+		<xs:attribute name="Value"
+									use="required"
+									type="PascalBoolean"/>
+	</xs:complexType>
+	<!--  any types(resources and others) -->
+	<xs:complexType name="IgnorableUnbounded_X_type">
+		<xs:sequence>
+			<xs:any processContents="lax"
+							minOccurs="1"
+							maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="Count"
+									use="required"/>
+	</xs:complexType>
+	<xs:complexType name="IgnorableUnboundedType">
+		<xs:sequence>
+			<xs:any processContents="lax"
+							minOccurs="1"
+							maxOccurs="unbounded"/>
+		</xs:sequence>		
+	</xs:complexType>
+	<!-- components-->
+	<xs:complexType name="VersionType">
+		<xs:attribute name="Value"
+									use="required"/>
+	</xs:complexType>
+	<xs:complexType name="PathDelimType">
+		<xs:attribute name="Value"
+									use="required"/>
+	</xs:complexType>
+	<xs:complexType name="LazDocType">
+		<xs:attribute name="Paths"/>
+		<xs:attribute name="PackageName"/>
+	</xs:complexType>
+	
+	<xs:complexType name="i18nType">
+		<xs:sequence>
+			<xs:element minOccurs="0"
+									name="EnableI18N" type="WithBooleanValueAttributeType"/>
+			<xs:element minOccurs="0"
+									name="OutDir">
+				<xs:complexType>
+					<xs:attribute name="Value"
+												use="required"
+												type="xs:string"/>
+				</xs:complexType>
+			</xs:element>
+			<xs:element minOccurs="0"
+									name="ExcludedIdentifiers" type="IgnorableUnbounded_X_type"/>
+			<xs:element minOccurs="0"
+									name="ExcludedOriginals" type="IgnorableUnbounded_X_type"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+</xs:schema>

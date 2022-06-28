@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Created with Liquid Studio 2021 (https://www.liquid-technologies.com) -->
+<xs:schema elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+					 targetNamespace="urn://org/freepascal/lazarus/CONFIG/2.3.0/DEBUGGING"
+					 xmlns="urn://org/freepascal/lazarus/CONFIG/2.3.0/DEBUGGING"
+					 xmlns:basic="urn://org/freepascal/lazarus/CONFIG/2.3.0/BASIC">
+	<xs:import namespace="urn://org/freepascal/lazarus/CONFIG/2.3.0/BASIC"	schemaLocation="basictypes.xsd"/>
+	<xs:element name="Debugging">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element minOccurs="0"
+										ref="GenerateDebugInfo"/>
+				<xs:element minOccurs="0"
+										ref="DebugInfoType"/>
+				<xs:element minOccurs="0"
+										ref="UseHeaptrc"/>
+				<xs:element minOccurs="0"
+										ref="TrashVariables"/>
+				<xs:element minOccurs="0"
+										ref="UseValgrind"/>
+				<xs:element minOccurs="0"
+										ref="GenGProfCode"/>
+				<xs:element minOccurs="0"
+										ref="StripSymbols"/>
+				<xs:element minOccurs="0"
+										ref="UseExternalDbgSyms"/>
+				<xs:element minOccurs="0"
+										ref="Exceptions"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="GenerateDebugInfo">
+		<xs:complexType>
+			<xs:attribute name="Value"
+										use="required"
+										type="basic:PascalBoolean"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="DebugInfoType">
+		<xs:complexType>
+			<xs:attribute name="Value"
+										default="dsDwarf3"
+										type="DebugInfoTypeType"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="UseHeaptrc">
+		<xs:complexType>
+			<xs:attribute name="Value"
+										use="required"
+										type="basic:PascalBoolean"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="TrashVariables">
+		<xs:complexType>
+			<xs:attribute name="Value"
+										use="required"
+										type="basic:PascalBoolean"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="UseValgrind">
+		<xs:complexType>
+			<xs:attribute name="Value"
+										use="required"
+										type="basic:PascalBoolean"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="GenGProfCode">
+		<xs:complexType>
+			<xs:attribute name="Value"
+										use="required"
+										type="basic:PascalBoolean"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="StripSymbols">
+		<xs:complexType>
+			<xs:attribute name="Value"
+										use="required"
+										type="basic:PascalBoolean"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="UseExternalDbgSyms">
+		<xs:complexType>
+			<xs:attribute name="Value"
+										use="required"
+										type="basic:PascalBoolean"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Exceptions">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Item"
+										minOccurs="1"
+										maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="Name"
+													minOccurs="1">
+								<xs:complexType>
+									<xs:attribute name="Value"
+																type="xs:token"/>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:simpleType name="DebugInfoTypeType">
+		<xs:restriction base="xs:token">
+			<xs:enumeration value="dsAuto"/>
+			<xs:enumeration value="dsStabs"/>
+			<xs:enumeration value="dsDwarf2Set"/>
+			<xs:enumeration value="dsDwarf3"/>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>

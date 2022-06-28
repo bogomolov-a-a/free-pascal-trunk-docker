@@ -117,7 +117,6 @@ type
   TApplicationBuildInfoCollection = class(TCollection)
   public
     constructor Create(AItemClass: TCollectionItemClass);
-    procedure GenerateBuildScript();
     class function SortItem(Item1, Item2: TApplicationBuildInfo): integer; static;
   end;
 
@@ -133,11 +132,16 @@ constructor TAbstractApplicationBuildInfo.Create(ACollection: TCollection);
 
 constructor TAbstractApplicationBuildInfo.Create;
   begin
-
+    FProjectFileName := EmptyStr;
+    FBuildSystemInfo := TBuildSystemInfo.Create;
+    FDependenies := TDependencyCollection.Create;
   end;
 
 destructor TAbstractApplicationBuildInfo.Destroy;
   begin
+    FreeAndNil(FDependenies);
+    FreeAndNil(FBuildSystemInfo);
+    FProjectFileName := EmptyStr;
     inherited Destroy;
   end;
 
@@ -234,11 +238,6 @@ destructor TApplicationBuildInfo.Destroy;
 constructor TApplicationBuildInfoCollection.Create(AItemClass: TCollectionItemClass);
   begin
     inherited Create(TApplicationBuildInfo);
-  end;
-
-procedure TApplicationBuildInfoCollection.GenerateBuildScript;
-  begin
-
   end;
 
 class function TApplicationBuildInfoCollection.SortItem(Item1, Item2: TApplicationBuildInfo): integer;
