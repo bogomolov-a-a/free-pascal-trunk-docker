@@ -15,30 +15,39 @@ type
   { TBuildScriptBuilderFactory }
 
   TBuildScriptBuilderFactory = class
+  strict private
+    {$IF DEFINED(LCLcarbon) }
+    {$ENDIF}
+
+  public
     class function CreateBuildScriptBuilder(): IBuildScriptBuilder;
+
   end;
 
 implementation
 
 { TBuildScriptBuilderFactory }
+type
+TWindowsBuildScriptBuilder=class(TInterfacedObject,IBuildScriptBuilder)
+end
 
 class function TBuildScriptBuilderFactory.CreateBuildScriptBuilder: IBuildScriptBuilder;
 begin
-  Result:={$IF DEFINED(LCLcarbon)}
+  {$IF DEFINED(LCLcarbon)} Result:=
   TMacOSBuildScriptBuilder.Create
-  {$ELSE}
+  {$ENDIF}
          {$IF DEFINED(Linux)}
-         TLinuxBuildScriptBuilder.Create
+          Result:=TLinuxBuildScriptBuilder.Create
          {$ELSE}
                 {$IF DEFINED(UNIX)}
-                TUnixBuildScriptBuilder.Create
+                 Result:=TUnixBuildScriptBuilder.Create
                 {$ELSE}
                        {$IF DEFINED(WINDOWS)}
-                       TWindowsBuildScriptBuilder.Create;
+                        Result:=TWindowsBuildScriptBuilder.Create;
                        {$ENDIF}
                 {$ENDIF}
          {$ENDIF}
-  {$ENDIF}
+
 end;
 
 end.
