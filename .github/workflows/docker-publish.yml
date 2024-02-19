@@ -5,9 +5,6 @@ on:
     # Publish `main` as Docker `latest` image.
     branches:
       - main
-  schedule:
-    - cron: '15 * * * *'
-
 env:
   IMAGE_NAME: free-pascal-with-lazbuild-trunk
   FREE_PASCAL_IMAGE_NAME: free-pascal-trunk
